@@ -1,0 +1,13 @@
+import {mkdir,writeFile} from 'node:fs/promises';
+await mkdir('research/raw',{recursive:true});
+const headers={'User-Agent':'FamilyTripPlanner/1.0 (development routing research)'};
+const geocodeUrl='https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=3&q='+encodeURIComponent('Ulica Braće Radića 63, Bibinje, Croatia');
+const places=await fetch(geocodeUrl,{headers}).then(r=>r.json());
+await writeFile('research/raw/bibinje-geocode.json',JSON.stringify({url:geocodeUrl,checkedAt:new Date().toISOString(),results:places},null,2));
+console.log('BIBINJE',JSON.stringify(places.map(p=>({lat:p.lat,lon:p.lon,name:p.display_name}))));
+const url='https://routing.openstreetmap.de/routed-car/route/v1/driving/14.5604,50.0017;14.585544,46.32924?overview=full&geometries=geojson&steps=true&annotations=distance,duration';
+const data=await fetch(url,{headers}).then(r=>r.json());
+await writeFile('research/raw/home-slovenia-default.json',JSON.stringify({url,checkedAt:new Date().toISOString(),data}));
+const route=data.routes[0];
+console.log('DEFAULT',route.distance/1000,route.duration/3600);
+console.log('ROADS',JSON.stringify(route.legs.flatMap(l=>l.steps).filter(s=>s.distance>3000).map(s=>({ref:s.ref,name:s.name,km:Math.round(s.distance/1000),start:s.geometry.coordinates[0],middle:s.geometry.coordinates[Math.floor(s.geometry.coordinates.length/2)],classes:[...new Set(s.intersections.flatMap(i=>i.classes||[]))]}))));

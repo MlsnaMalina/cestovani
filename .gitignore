@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.vercel/
+*.tsbuildinfo
+research/raw/
+research/valhalla/
+research/stop-routing/
+research/geocoding/
+research/crosscheck/
+concepts/*-desktop.png
+concepts/*-mobile.png

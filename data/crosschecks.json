@@ -1,0 +1,29 @@
+[
+  {
+    "id": "si-a",
+    "url": "https://routing.openstreetmap.de/routed-car/route/v1/driving/14.5604,50.0017;14.297402,48.243222;15.50602,46.857862;14.751764,46.218318;14.585544,46.32924?overview=false&steps=false&continue_straight=true",
+    "distanceKm": 633.541,
+    "drivingMinutes": 446.60166666666663,
+    "primaryKm": 633.5,
+    "primaryMinutes": 474.2874333333333,
+    "checkedAt": "2026-09-08T19:50:53.173Z"
+  },
+  {
+    "id": "si-b",
+    "url": "https://routing.openstreetmap.de/routed-car/route/v1/driving/14.5604,50.0017;16.641198,48.776644;15.50602,46.857862;14.751764,46.218318;14.585544,46.32924?overview=false&steps=false&continue_straight=true",
+    "distanceKm": 688.3516,
+    "drivingMinutes": 457.60333333333335,
+    "primaryKm": 688.245,
+    "primaryMinutes": 464.05578333333335,
+    "checkedAt": "2026-09-08T19:50:54.390Z"
+  },
+  {
+    "id": "si-d",
+    "url": "https://routing.openstreetmap.de/routed-car/route/v1/driving/14.5604,50.0017;13.124005,47.676423;14.021033,46.504789;14.585544,46.32924?overview=false&steps=false&continue_straight=true",
+    "distanceKm": 651.5911,
+    "drivingMinutes": 445.19666666666666,
+    "primaryKm": 651.514,
+    "primaryMinutes": 463.62245,
+    "checkedAt": "2026-09-08T19:50:55.609Z"
+  }
+]

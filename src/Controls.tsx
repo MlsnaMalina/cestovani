@@ -1,0 +1,8 @@
+import {useEffect,useId,useRef,useState} from 'react';
+import type {ReactNode} from 'react';
+import {X} from 'lucide-react';
+export function NumberField({label,value,min,max,step=1,onChange}:{label:string;value:number;min:number;max:number;step?:number;onChange:(value:number)=>void}){
+ const [text,setText]=useState(String(value));const id=useId();useEffect(()=>setText(String(value)),[value]);const parsed=Number(text.replace(',','.'));const valid=text.trim()!==''&&Number.isFinite(parsed)&&parsed>=min&&parsed<=max&&(step<1||Number.isInteger(parsed));
+ return <label className="field">{label}<input id={id} aria-label={label} type="text" inputMode={step<1?'decimal':'numeric'} value={text} aria-invalid={!valid} aria-describedby={!valid?id+'-error':undefined} onChange={e=>{setText(e.target.value);const n=Number(e.target.value.replace(',','.'));if(e.target.value.trim()!==''&&Number.isFinite(n)&&n>=min&&n<=max&&(step<1||Number.isInteger(n)))onChange(n);}}/>{!valid&&<small id={id+'-error'} className="error">Zadejte {min}–{max}{step===1?' celých minut':''}. Výpočet zatím používá poslední platnou hodnotu.</small>}</label>;
+}
+export function Modal({title,children,onClose}:{title:string;children:ReactNode;onClose:()=>void}){const ref=useRef<HTMLDialogElement>(null);const id=useId();useEffect(()=>{const el=ref.current!;el.showModal();return()=>el.close();},[]);return <dialog ref={ref} aria-labelledby={id} onCancel={onClose} onClick={e=>{if(e.target===e.currentTarget)onClose();}}><div className="modal-head"><h2 id={id}>{title}</h2><button className="icon-button" aria-label="Zavřít panel" onClick={onClose}><X size={21}/></button></div><div className="modal-body">{children}</div></dialog>;}
