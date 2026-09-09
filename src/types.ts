@@ -11,4 +11,7 @@ export interface Route{tollAdjustments:{stopId:string;eur:number;source:string}[
 export interface Dataset{routes:Route[];places:Place[];stages:Stage[];sources:Source[];checkedAt:string}
 export interface Selection{routeId:string;stops:Record<string,number>;reserve:number}
 export interface Settings{consumption:number;fuelPrice:number;departures:Record<StageId,string>;plan:Partial<Record<StageId,Selection>>}
+export interface FacilityVisit{routeId:string;atKm:number;detourKm:number;detourMinutes:number;routingUrl:string}
+export interface Facility{id:string;name:string;coordinates:Point;fuel:string[];toilets:boolean;toiletAccess:string;toiletFee:string;openingHours:string;sourceUrl:string;checkedAt:string;visits:FacilityVisit[]}
+export interface FacilityFilter{toilets:boolean;fuel:boolean}
 export interface TimedStop{visit:StopVisit;duration:number;arrivalMinute:number;leaveMinute:number;distanceKm:number}

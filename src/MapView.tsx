@@ -4,8 +4,8 @@ import type {Map as MapInstance,Marker} from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 maplibregl.setWorkerUrl(workerUrl);
-import type {Place,Route,Selection,Stage} from './types';
-interface Props{routes:Route[];places:Place[];stage:Stage;activeId:string|null;selection?:Selection;overview:boolean;onRoute:(id:string)=>void;onPlace:(id:string)=>void}
+import type {Facility,FacilityFilter,Place,Route,Selection,Stage} from './types';
+interface Props{facilityFilter:FacilityFilter;facilities:Facility[];onFacility:(id:string)=>void;onFacilityGroup:(ids:string[])=>void;routes:Route[];places:Place[];stage:Stage;activeId:string|null;selection?:Selection;overview:boolean;onRoute:(id:string)=>void;onPlace:(id:string)=>void}
 const symbols:Record<string,string>={park:'♧',lake:'≈',nature:'♧',food:'♨',town:'⌂',hike:'↟'};
 function fitRoutes(map:MapInstance,routes:Route[]){const bounds=new maplibregl.LngLatBounds();routes.forEach(r=>r.geometry.coordinates.forEach(p=>bounds.extend([p[0],p[1]])));if(!bounds.isEmpty())map.fitBounds(bounds,{padding:{top:78,bottom:48,left:35,right:45},duration:0});}
 export default function MapView(props:Props){
@@ -45,5 +45,26 @@ export default function MapView(props:Props){
   if(map.getLayer('detours'))map.removeLayer('detours');if(map.getSource('detours'))map.removeSource('detours');
   const selected=props.routes.find(r=>r.id===props.selection?.routeId);if(selected){map.addSource('detours',{type:'geojson',data:{type:'FeatureCollection',features:selected.stops.filter(s=>props.selection?.stops[s.id]!==undefined).map(s=>({type:'Feature',properties:{},geometry:{type:'LineString',coordinates:s.geometry}}))}});map.addLayer({id:'detours',type:'line',source:'detours',paint:{'line-color':selected.color,'line-width':5,'line-dasharray':[1,1]}});}
  },[ready,props.activeId,props.routes,props.selection,props.places,props.stage]);
+ useEffect(()=>{
+  const map=mapRef.current;if(!ready||!map||!map.getStyle())return;
+  let serviceMarkers:Marker[]=[];
+  const render=()=>{
+  serviceMarkers.forEach(marker=>marker.remove());
+  const groups:{points:Facility[];x:number;y:number}[]=[];
+  for(const p of props.facilities){const pixel=map.project(p.coordinates);const nearby=groups.find(g=>Math.hypot(g.x-pixel.x,g.y-pixel.y)<48);if(nearby)nearby.points.push(p);else groups.push({points:[p],x:pixel.x,y:pixel.y});}
+  serviceMarkers=groups.map(group=>{
+   const p={...group.points[0],toilets:group.points.some(p=>p.toilets),fuel:group.points.flatMap(p=>p.fuel)};
+   const el=document.createElement('button');el.type='button';el.className='facility-marker';el.title=p.name;
+   const labels=[...(props.facilityFilter.toilets&&p.toilets?['WC']:[]),...(props.facilityFilter.fuel&&p.fuel.length?['Benzín']:[])];el.setAttribute('aria-label',labels.join(' a ')+': '+p.name);
+   if(props.facilityFilter.fuel&&p.fuel.length){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('width','18');svg.setAttribute('height','18');svg.setAttribute('fill','none');svg.setAttribute('stroke','currentColor');svg.setAttribute('stroke-width','2');svg.setAttribute('aria-hidden','true');const path=document.createElementNS(svg.namespaceURI,'path');path.setAttribute('d','M3 22V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v18M2 22h12M3 10h10M13 12h2a2 2 0 0 1 2 2v4a2 2 0 0 0 4 0V8l-4-4M18 5v3h3');svg.append(path);el.append(svg);}
+   if(props.facilityFilter.toilets&&p.toilets){const label=document.createElement('span');label.textContent='WC';el.append(label);}
+   if(group.points.length>1){const count=document.createElement('b');count.className='facility-count';count.textContent=String(group.points.length);el.append(count);el.title=group.points.length+' míst blízko sebe';el.setAttribute('aria-label','Skupina '+group.points.length+' míst: '+labels.join(' a '));}
+   el.addEventListener('click',event=>{event.stopPropagation();if(group.points.length>1)current.current.onFacilityGroup(group.points.map(p=>p.id));else current.current.onFacility(p.id);});
+   return new maplibregl.Marker({element:el}).setLngLat(p.coordinates).addTo(map);
+  });
+  };
+  render();map.on('moveend',render);
+  return()=>{map.off('moveend',render);serviceMarkers.forEach(marker=>marker.remove());};
+ },[ready,props.facilities,props.facilityFilter]);
  return <div className="map-wrap"><div ref={container} className="map" aria-label="Interaktivní mapa tras a zastávek"/><div className="map-caption">{props.overview?'Všechny přesuny':props.activeId?'Detail trasy · klikněte na zastávku':'Všechny varianty · klikněte na trasu'}</div>{error&&<p className="map-error" role="status">{error}</p>}</div>;
 }

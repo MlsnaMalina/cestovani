@@ -82,3 +82,13 @@ Projekt je statická klientská aplikace. `vercel.json` nastavuje build `npm run
 Po propojení GitHub repozitáře s Vercel nastavte framework Vite a produkční větev `main`. Autorem commitů musí být `k.schmiedtova@seznam.cz`. `.env` je v `.gitignore`. Po každém nasazení otestujte na skutečné veřejné URL mapové čáry, marker, přidání a odebrání pauzy, změnu odjezdu, benzín, další etapy a telefon 375 px.
 
 V této pracovní složce při zahájení nebyl nastavený vzdálený repozitář ani propojení s Vercel. Připravené sestavení samo o sobě neznamená zveřejnění webu.
+
+## WC a benzín — 9. 9. 2026
+
+- 100 míst, z toho 60 s doloženými WC a 57 s benzinovým palivem, 203 přiřazení ke směrům všech 12 tras. Kategorie se překrývají.
+- Samostatná vrstva: oba filtry výchozí zapnuté, kliknutí do detailu, seznam dostupný i bez mapy, blízké značky se při oddálení seskupují. Původní výletní zastávky a uložený itinerář zůstávají samostatné.
+- Zdroj: OpenStreetMap přes veřejné Overpass API. Zobrazuje se datum stažení, přístup k WC, poplatek a otevírací doba, pokud jsou v datech. Benzín vyžaduje výslovný údaj fuel:octane_95/98/100, gasoline_95 nebo e10; samotné amenity=fuel nestačí. WC není automaticky předpokládáno u pumpy. Vyloučeny záznamy se zakázaným/soukromým přístupem a zrušené objekty.
+- Kandidáti do 450 m od geometrie, výběr pro obě služby v přibližně 65km úsecích. Nejde o úplný seznam provozoven ani slib nepřetržité dostupnosti. Příjezd se kontroluje Valhallou s orientovanými body 3 km před/za místem; přijaty zajížďky do 5 km / 10 min a konec příjezdové geometrie do 90 m od bodu. 36 nevhodných kandidátů odmítnuto. Není garantováno aktuální otevření nebo obsazenost.
+- Značky nemění rozpočet ani itinerář: pauzu i případnou zajížďku zohlední uživatel ve vlastní rezervě. WC stanice nemusí sdílet její otevírací dobu.
+- Data připravuje `npm.cmd run data:services`; předpokládá routingové cache z `npm.cmd run data:routes`. Stažené oblasti a dotazy se cachují v ignorovaném research/services/. Při obnově dat záměrně odstraňte odpovídající cache. data/services.json je veřejný výřez dat OSM pod ODbL, © OpenStreetMap contributors; atribuce a jednotlivé zdroje také v aplikaci. Obnova může být pomalá kvůli veřejným serverům, běh aplikace na nich nezávisí.
+- Veřejné evropské Overpass servery při přípravě vracely chyby nebo timeout. Úspěšně použit veřejný server maps.mail.ru/osm/tools/overpass, uvedený v oficiálním seznamu instancí OSM; dotazy obsahují pouze geografické oblasti a typy zařízení, žádné přihlašovací údaje.

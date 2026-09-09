@@ -110,3 +110,12 @@ Uživatelka vybrala kombinaci A + C: vzhled a dominantní mapa konceptu 1 (Mapa 
 - Připraven README a vercel.json (bez tajných klíčů). Vercel hlavičky se v lokálním preview nepoužívají; ověření živého nasazení zbývá až po připojení služby.
 - Místní hotový náhled http://127.0.0.1:4174/. Starý port 4173 obsahuje pouze designové koncepty. Vývojový server běží na 5173.
 - Po posledních opravách znovu ověřeno uložení času 11:30, pobytu 60 minut a příjezdu 17:40 po obnovení stránky. Neplatný číselný vstup má stabilní přístupný název a chybu. Zkušební výběry odstraněny, odjezdy a palivo vráceny na výchozí hodnoty. Poslední kontrola konzole bez nových chyb. Lokální větev main; push/nasazení nelze dokončit bez remote.
+
+## Rozšíření WC / benzín a GitHub — 9. 9. 2026
+
+- Uživatelka požádala o značky pro toalety a tankování, při zachování schváleného vzhledu A + C. Jde o doplnění současné mapy; další volba vzhledu nebyla potřeba.
+- Doplněno 100 míst / 203 vazeb ke konkrétním trasám. WC má 60 míst, benzín 57; některé obě služby. Podrobnosti, omezení zdrojů a reprodukce jsou v README.
+- Filtry WC / Benzín, sdružené značky při oddálení, seznam i detail, odkazy na zdroj a mapu. Zdrojové záznamy nejsou telefonicky ověřené, žádná automatická domněnka WC u každé pumpy. Pauzy se samy nepřidávají do itineráře.
+- Rozšířená kontrola: 16 testů včetně dostupnosti obou služeb pro každou trasu, nezávislých filtrů, směrů, bez duplicit a limitů zajížďky. V prohlížeči ověřen detail MOL/Shell, přepínače WC/benzín a nulový stav, seznam skupiny.
+- Uživatelka výslovně zadala nahrání výsledku do https://github.com/MlsnaMalina/cestovani.git, větev main podle globálních pravidel. Přístup čtením ověřen, vzdálený repozitář byl prázdný. Starší poznámky o chybějícím GitHubu tímto překonány. Vercel dosud není připojen.
+- Finální ověření v produkčním lokálním náhledu: všech 12 variant má správný počet míst (12–28 podle trasy), seskupené značky fungují, filtry nevypínají samotnou mapu, seznam a detail se otevírají. Mobil 375 px bez vodorovného přetečení, ovládání pod mapou a itinerář pod ním. Finální sestavení a všech 16 testů prošlo; konzole bez chyb. Připraveno k push na uživatelkou zadaný GitHub.
