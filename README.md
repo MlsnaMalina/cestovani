@@ -2,6 +2,10 @@
 
 Rodinný plán cesty Průhonice → Kamniška Bistrica → Bibinje → Průhonice, 12.–16. září 2026. Světlá mapa s malinovým akcentem podle schválené varianty A, denní itinerář pod mapou podle varianty C.
 
+## Předání a další pokračování
+
+Začněte [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md), potom [CURRENT_STATE.md](CURRENT_STATE.md) a [NEXT_STEPS.md](NEXT_STEPS.md). Další souvislosti: [SESSION_SUMMARY.md](SESSION_SUMMARY.md), [FILES_AND_MATERIALS.md](FILES_AND_MATERIALS.md) a [DO_NOT_CHANGE.md](DO_NOT_CHANGE.md). Pro novou AI konverzaci je připraven [PROMPT_FOR_NEXT_MODEL.md](PROMPT_FOR_NEXT_MODEL.md).
+
 ## Co aplikace umí
 
 - 12 silničních variant ve třech etapách; všechny varianty etapy současně, barevné souběhy, kliknutí, zvýraznění a mapa celé dovolené.

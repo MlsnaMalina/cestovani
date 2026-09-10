@@ -1,6 +1,8 @@
 # Mapa dovolené — rozhodnutí a stav
 
-Aktualizováno: 9. 9. 2026. Jazyk: čeština. Časová zóna: Europe/Prague.
+Aktualizováno: 10. 9. 2026. Jazyk: čeština. Časová zóna: Europe/Prague.
+
+**Předání projektu:** začněte [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) a [CURRENT_STATE.md](CURRENT_STATE.md). Tento soubor je chronologický deník; starší nehotové stavy jsou překonané pozdějšími záznamy. Připravený prompt: [PROMPT_FOR_NEXT_MODEL.md](PROMPT_FOR_NEXT_MODEL.md).
 
 ## Potvrzené zadání
 
@@ -145,3 +147,11 @@ Uživatelka vybrala kombinaci A + C: vzhled a dominantní mapa konceptu 1 (Mapa 
 - V prohlížeči ověřeno kliknutí na značku Velika planina a Zadar, fotografie načtené, skupina Vransko jezero / Biograd → detail, přepnutí obou okolí a návrat k celé dovolené. Mobil 375 × 812: šířka stránky 360 px se scrollbarem, dialog 343 px bez přetečení; žádné chyby konzole. Zkušební plány i nákupy odstraněny přes UI, původní prázdný plán zachován.
 - Context7 není dostupný; oficiální dokumentace a zdroje použity přímo. Vercel dosud není připojen: výsledek se nahrává na GitHub, místní produkční náhled 4174; netvrdit živé nasazení.
 - Finální ověření tohoto rozšíření: všech 33 testů prošlo a produkční sestavení je úspěšné. Kontrola finálního sestavení při 375 px i 1280 px, konzole bez chyb. Kontrola zdrojů/diffu bez nálezu tajných klíčů; .env ignorován, autor commitu správný.
+
+
+## Dokumentační uzavření session — 10. 9. 2026
+
+- Na výslovné zadání uživatelky vzniklo sedm dokumentů v kořeni: PROJECT_CONTEXT.md, SESSION_SUMMARY.md, CURRENT_STATE.md, NEXT_STEPS.md, FILES_AND_MATERIALS.md, PROMPT_FOR_NEXT_MODEL.md a DO_NOT_CHANGE.md. Poslední prompt obsahuje i osmibodový rychlý start.
+- Stav podložen kontrolou souborů, zdrojových modulů, původního zadání, README a Git historie. Funkční základ f97f920 už je na origin/main; tato změna upravuje pouze dokumentaci.
+- Předání rozlišuje schválené chování, skutečné nákupy versus testovací volby, datové nejistoty, lokální preview versus nedoložené Vercel nasazení a historické versus současné ceny karet. Nejsou zadány nové funkce.
+- Při dokumentační změně se neopakuje funkční testovací sada; poslední implementační výsledek 33 testů a runtime kontrola jsou zaznamenané jako předchozí ověření. Kontrolovány interní odkazy a existence uváděných hlavních souborů.
