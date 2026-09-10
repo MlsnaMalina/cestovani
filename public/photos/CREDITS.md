@@ -1,0 +1,21 @@
+# Fotografie zastávek
+
+Soubory jsou nezměněné zmenšeniny z Wikimedia Commons. Náhledy v aplikaci používají výřez CSS; detail ukazuje celý snímek.
+
+- **České Budějovice, Stromovka JZ (01).jpg** — Czeva. [Zdroj](https://commons.wikimedia.org/wiki/File:%C4%8Cesk%C3%A9_Bud%C4%9Bjovice,_Stromovka_JZ_(01).jpg), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0). Soubor: /photos/stromovka.jpg.
+- **Gleinkersee.jpg** — Acp~commonswiki. [Zdroj](https://commons.wikimedia.org/wiki/File:Gleinkersee.jpg), [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/). Soubor: /photos/gleinkersee.jpg.
+- **Mikulov castle as seen from Náměstí in 2020.jpg** — Tadeáš Bednarz. [Zdroj](https://commons.wikimedia.org/wiki/File:Mikulov_castle_as_seen_from_N%C3%A1m%C4%9Bst%C3%AD_in_2020.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Soubor: /photos/mikulov.jpg.
+- **Franzensburg Schlosspark Laxenburg.jpg** — Hendric Stattmann. [Zdroj](https://commons.wikimedia.org/wiki/File:Franzensburg_Schlosspark_Laxenburg.jpg), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0). Soubor: /photos/laxenburg.jpg.
+- **Maribor - mestni park z otokom.jpg** — Dibko. [Zdroj](https://commons.wikimedia.org/wiki/File:Maribor_-_mestni_park_z_otokom.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Soubor: /photos/maribor.jpg.
+- **Erlebnis Burgbau Friesach P4150013.jpg** — Worldfootage. [Zdroj](https://commons.wikimedia.org/wiki/File:Erlebnis_Burgbau_Friesach_P4150013.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Soubor: /photos/friesach.jpg.
+- **Klagenfurt - Europapark 4.JPG** — JJ55. [Zdroj](https://commons.wikimedia.org/wiki/File:Klagenfurt_-_Europapark_4.JPG), [Public domain](https://creativecommons.org/publicdomain/mark/1.0/). Soubor: /photos/europapark.jpg.
+- **Mondsee Panorama - panoramio.jpg** — Kakao45. [Zdroj](https://commons.wikimedia.org/wiki/File:Mondsee_Panorama_-_panoramio.jpg), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0). Soubor: /photos/mondsee.jpg.
+- **Hauptplatz Gmünd in Kärnten, 2023.jpg** — DimiTalen. [Zdroj](https://commons.wikimedia.org/wiki/File:Hauptplatz_Gm%C3%BCnd_in_K%C3%A4rnten,_2023.jpg), [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Soubor: /photos/gmund.jpg.
+- **Bled Island & Bled Castle (1).jpg** — Krzysztof Golik. [Zdroj](https://commons.wikimedia.org/wiki/File:Bled_Island_%26_Bled_Castle_(1).jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Soubor: /photos/bled.jpg.
+- **KamniskaBistrica-izvir.JPG** — Ziga at sl.wikipedia. Later version(s) were uploaded by Matijap at sl.wikipedia.. [Zdroj](https://commons.wikimedia.org/wiki/File:KamniskaBistrica-izvir.JPG), [Public domain](https://creativecommons.org/publicdomain/mark/1.0/). Soubor: /photos/bistrica.jpg.
+- **Pazarski ćevapi - cevapcici from Novi Pazar (Serbia) 01.jpg** — Miomir Magdevski. [Zdroj](https://commons.wikimedia.org/wiki/File:Pazarski_%C4%87evapi_-_cevapcici_from_Novi_Pazar_(Serbia)_01.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Soubor: /photos/cad.jpg.
+- **Grad Otočec z juga.jpg** — Vid Pogacnik. [Zdroj](https://commons.wikimedia.org/wiki/File:Grad_Oto%C4%8Dec_z_juga.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Soubor: /photos/otocec.jpg.
+- **Fužine Bajer lake Croatia - panoramio.jpg** — Reklam-net. [Zdroj](https://commons.wikimedia.org/wiki/File:Fu%C5%BEine_Bajer_lake_Croatia_-_panoramio.jpg), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0). Soubor: /photos/fuzine.jpg.
+- **Metlika.JPG** — No machine-readable author provided. Žiga assumed (based on copyright claims).. [Zdroj](https://commons.wikimedia.org/wiki/File:Metlika.JPG), [Public domain](https://creativecommons.org/publicdomain/mark/1.0/). Soubor: /photos/metlika.jpg.
+- **J32 037 Ogulin, Ðulin ponor.jpg** — Falk2. [Zdroj](https://commons.wikimedia.org/wiki/File:J32_037_Ogulin,_%C3%90ulin_ponor.jpg), [CC BY-SA 3.0 de](https://creativecommons.org/licenses/by-sa/3.0/de/deed.en). Soubor: /photos/ogulin.jpg.
+- **Trakošćan Castle - Dvorac Trakošćan.jpg** — Hrvoje Bađinec. [Zdroj](https://commons.wikimedia.org/wiki/File:Trako%C5%A1%C4%87an_Castle_-_Dvorac_Trako%C5%A1%C4%87an.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Soubor: /photos/trakoscan.jpg.

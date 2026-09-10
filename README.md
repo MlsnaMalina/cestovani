@@ -6,6 +6,8 @@ Rodinný plán cesty Průhonice → Kamniška Bistrica → Bibinje → Průhonic
 
 - 12 silničních variant ve třech etapách; všechny varianty etapy současně, barevné souběhy, kliknutí, zvýraznění a mapa celé dovolené.
 - 17 míst a 49 přiřazení zastávek k trasám. Příjezdy a zajížďky vypočtené po silnici, sdílená místa mají samostatné údaje pro každý koridor.
+- Ceny v Kč i EUR v trasách, rozpočtu, vstupném a zdrojových popiscích. Výchozí kurz ČNB 24,25 Kč/EUR k 9. 9. 2026 lze změnit v nastavení; vlastní kurz se ukládá společně s plánem. Základní výpočty zůstávají v EUR bez předčasného zaokrouhlení.
+- Fotografie všech 17 výletních zastávek: náhled v kartě, celý snímek a autor/licence v detailu. U restaurace Čad je jasně označená ilustrační fotografie balkánského jídla. Snímky zachycují různá roční období a nejsou aktuální kamerový pohled.
 - Prohlížení trasy samo nezmění uložený plán. Tlačítko pro použití trasy nebo přidání zastávky je výslovná volba uživatele.
 - Odjezdy, délky pauz, vlastní rezerva, odebrání zastávky, přepočet ETA a datum při přechodu přes půlnoc v Europe/Prague.
 - Editovatelná spotřeba a společná cena benzínu, rozpočet jednotlivé etapy i celé dovolené, známky bez duplicit za období platnosti. Zohledněné rozdělení mýta HAC při sjezdech Ogulin a Vrata/Fužine.
@@ -48,6 +50,10 @@ React 19, striktní TypeScript 7, Vite 8, MapLibre GL JS 6, Temporal polyfill, V
 - `context.md`: potvrzené požadavky, rozhodnutí a stav práce.
 
 ## Aktualizace dat
+
+Fotografie jsou přibalené v `public/photos/`; autory, licence a odkazy obsahují `data/photos.json` a `public/photos/CREDITS.md`. Výběr je v `data/photo-selection.mjs`, reprodukce příkazem `node scripts/acquire-photos.mjs`. Soubory jsou nezměněné zmenšeniny z Wikimedia Commons; CSS náhledy ořezává pouze při zobrazení. Detail zachovává celý snímek. Fotky nejsou během používání aplikace stahovány z cizího serveru.
+
+Kurz je datový snímek v `data/exchange-rate.json`, nikoli živá aktualizace. `node scripts/acquire-exchange-rate.mjs` stáhne a zkontroluje EUR z oficiálního API ČNB pro datum uvedené ve skriptu. Pro novější kurz nejdříve změňte datum dotazu, poté znovu sestavte aplikaci. Bankovní kurz se může lišit.
 
 Při změně geometrie nebo průjezdních bodů upravte `scripts/acquire-valhalla.mjs`. Sada bodů pro C má dvě části; jižní část výslovně vylučuje dálnice a mýto. Všechny ostatní průjezdní body jsou `through`, aby nevznikaly otočky na dálnici.
 

@@ -1,0 +1,189 @@
+{
+  "stromovka": {
+    "src": "/photos/stromovka.jpg",
+    "alt": "Zeleň a cesty v budějovické Stromovce.",
+    "caption": "Zeleň a cesty v budějovické Stromovce.",
+    "illustrative": false,
+    "author": "Czeva",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%C4%8Cesk%C3%A9_Bud%C4%9Bjovice,_Stromovka_JZ_(01).jpg",
+    "title": "České Budějovice, Stromovka JZ (01).jpg"
+  },
+  "gleinkersee": {
+    "src": "/photos/gleinkersee.jpg",
+    "alt": "Horské jezero Gleinkersee.",
+    "caption": "Horské jezero Gleinkersee.",
+    "illustrative": false,
+    "author": "Acp~commonswiki",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gleinkersee.jpg",
+    "title": "Gleinkersee.jpg"
+  },
+  "mikulov": {
+    "src": "/photos/mikulov.jpg",
+    "alt": "Pohled z mikulovského náměstí na zámek.",
+    "caption": "Pohled z mikulovského náměstí na zámek.",
+    "illustrative": false,
+    "author": "Tadeáš Bednarz",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mikulov_castle_as_seen_from_N%C3%A1m%C4%9Bst%C3%AD_in_2020.jpg",
+    "title": "Mikulov castle as seen from Náměstí in 2020.jpg"
+  },
+  "laxenburg": {
+    "src": "/photos/laxenburg.jpg",
+    "alt": "Franzensburg v parku Laxenburg; od vstupu přibližně půlhodina chůze.",
+    "caption": "Franzensburg v parku Laxenburg; od vstupu přibližně půlhodina chůze.",
+    "illustrative": false,
+    "author": "Hendric Stattmann",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Franzensburg_Schlosspark_Laxenburg.jpg",
+    "title": "Franzensburg Schlosspark Laxenburg.jpg"
+  },
+  "maribor": {
+    "src": "/photos/maribor.jpg",
+    "alt": "Jezírko v městském parku v Mariboru.",
+    "caption": "Jezírko v městském parku v Mariboru.",
+    "illustrative": false,
+    "author": "Dibko",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maribor_-_mestni_park_z_otokom.jpg",
+    "title": "Maribor - mestni park z otokom.jpg"
+  },
+  "friesach": {
+    "src": "/photos/friesach.jpg",
+    "alt": "Stavba hradu tradičními metodami ve Friesachu.",
+    "caption": "Stavba hradu tradičními metodami ve Friesachu.",
+    "illustrative": false,
+    "author": "Worldfootage",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erlebnis_Burgbau_Friesach_P4150013.jpg",
+    "title": "Erlebnis Burgbau Friesach P4150013.jpg"
+  },
+  "europapark": {
+    "src": "/photos/europapark.jpg",
+    "alt": "Europapark v Klagenfurtu.",
+    "caption": "Europapark v Klagenfurtu.",
+    "illustrative": false,
+    "author": "JJ55",
+    "license": "Public domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Klagenfurt_-_Europapark_4.JPG",
+    "title": "Klagenfurt - Europapark 4.JPG"
+  },
+  "mondsee": {
+    "src": "/photos/mondsee.jpg",
+    "alt": "Pohled na jezero Mondsee; fotografie jezera, nikoli konkrétního vstupu do Almeidaparku.",
+    "caption": "Pohled na jezero Mondsee; fotografie jezera, nikoli konkrétního vstupu do Almeidaparku.",
+    "illustrative": false,
+    "author": "Kakao45",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mondsee_Panorama_-_panoramio.jpg",
+    "title": "Mondsee Panorama - panoramio.jpg"
+  },
+  "gmund": {
+    "src": "/photos/gmund.jpg",
+    "alt": "Historické náměstí v korutanském Gmündu.",
+    "caption": "Historické náměstí v korutanském Gmündu.",
+    "illustrative": false,
+    "author": "DimiTalen",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hauptplatz_Gm%C3%BCnd_in_K%C3%A4rnten,_2023.jpg",
+    "title": "Hauptplatz Gmünd in Kärnten, 2023.jpg"
+  },
+  "bled": {
+    "src": "/photos/bled.jpg",
+    "alt": "Jezero Bled s ostrovem a hradem.",
+    "caption": "Jezero Bled s ostrovem a hradem.",
+    "illustrative": false,
+    "author": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bled_Island_%26_Bled_Castle_(1).jpg",
+    "title": "Bled Island & Bled Castle (1).jpg"
+  },
+  "bistrica": {
+    "src": "/photos/bistrica.jpg",
+    "alt": "Pramen Kamniške Bistrice.",
+    "caption": "Pramen Kamniške Bistrice.",
+    "illustrative": false,
+    "author": "Ziga at sl.wikipedia. Later version(s) were uploaded by Matijap at sl.wikipedia.",
+    "license": "Public domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:KamniskaBistrica-izvir.JPG",
+    "title": "KamniskaBistrica-izvir.JPG"
+  },
+  "cad": {
+    "src": "/photos/cad.jpg",
+    "alt": "Ilustrační fotografie balkánského jídla; nejde o fotografii podniku ani porce z restaurace Čad.",
+    "caption": "Ilustrační fotografie balkánského jídla; nejde o fotografii podniku ani porce z restaurace Čad.",
+    "illustrative": true,
+    "author": "Miomir Magdevski",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pazarski_%C4%87evapi_-_cevapcici_from_Novi_Pazar_(Serbia)_01.jpg",
+    "title": "Pazarski ćevapi - cevapcici from Novi Pazar (Serbia) 01.jpg"
+  },
+  "otocec": {
+    "src": "/photos/otocec.jpg",
+    "alt": "Zámek Otočec na ostrově v řece Krce.",
+    "caption": "Zámek Otočec na ostrově v řece Krce.",
+    "illustrative": false,
+    "author": "Vid Pogacnik",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grad_Oto%C4%8Dec_z_juga.jpg",
+    "title": "Grad Otočec z juga.jpg"
+  },
+  "fuzine": {
+    "src": "/photos/fuzine.jpg",
+    "alt": "Jezero Bajer u Fužine.",
+    "caption": "Jezero Bajer u Fužine.",
+    "illustrative": false,
+    "author": "Reklam-net",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fu%C5%BEine_Bajer_lake_Croatia_-_panoramio.jpg",
+    "title": "Fužine Bajer lake Croatia - panoramio.jpg"
+  },
+  "metlika": {
+    "src": "/photos/metlika.jpg",
+    "alt": "Historické jádro Metliky.",
+    "caption": "Historické jádro Metliky.",
+    "illustrative": false,
+    "author": "No machine-readable author provided. Žiga assumed (based on copyright claims).",
+    "license": "Public domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Metlika.JPG",
+    "title": "Metlika.JPG"
+  },
+  "ogulin": {
+    "src": "/photos/ogulin.jpg",
+    "alt": "Soutěska Đulin ponor v Ogulinu.",
+    "caption": "Soutěska Đulin ponor v Ogulinu.",
+    "illustrative": false,
+    "author": "Falk2",
+    "license": "CC BY-SA 3.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:J32_037_Ogulin,_%C3%90ulin_ponor.jpg",
+    "title": "J32 037 Ogulin, Ðulin ponor.jpg"
+  },
+  "trakoscan": {
+    "src": "/photos/trakoscan.jpg",
+    "alt": "Zámek Trakošćan a okolní krajina.",
+    "caption": "Zámek Trakošćan a okolní krajina.",
+    "illustrative": false,
+    "author": "Hrvoje Bađinec",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trako%C5%A1%C4%87an_Castle_-_Dvorac_Trako%C5%A1%C4%87an.jpg",
+    "title": "Trakošćan Castle - Dvorac Trakošćan.jpg"
+  }
+}

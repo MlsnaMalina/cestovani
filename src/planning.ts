@@ -1,3 +1,4 @@
+import exchange from '../data/exchange-rate.json';
 import {Temporal} from '@js-temporal/polyfill';
 import type {Country,Dataset,Route,Selection,Settings,StageId,TimedStop} from './types';
 export const timezone='Europe/Prague';
@@ -37,12 +38,13 @@ export function countryEvents(route:Route,departure:string,selection?:Selection)
 export function costs(route:Route,settings:Settings,selection?:Selection){const trip=itinerary(route,selection),gas=fuel(trip.distanceKm,settings.consumption,settings.fuelPrice);const passes=vignettePasses(countryEvents(route,settings.departures[route.stage],selection));const toll=routeToll(route,selection);const passTotal=passes.reduce((n,t)=>n+t.eur,0);return {...gas,toll,passes,passTotal,total:gas.eur+toll+passTotal};}
 export function routeToll(route:Route,selection?:Selection){return route.tolls.reduce((n,t)=>n+t.eur,0)+(route.tollAdjustments??[]).filter(t=>selection?.stops[t.stopId]!==undefined).reduce((n,t)=>n+t.eur,0);}
 export function budget(data:Dataset,settings:Settings){let gas=0,toll=0,distanceKm=0;const events:{country:Country;date:string}[]=[];for(const stage of data.stages){const choice=settings.plan[stage.id];if(!choice)continue;const route=data.routes.find(r=>r.id===choice.routeId);if(!route)continue;const trip=itinerary(route,choice);gas+=fuel(trip.distanceKm,settings.consumption,settings.fuelPrice).eur;toll+=routeToll(route,choice);distanceKm+=trip.distanceKm;events.push(...countryEvents(route,settings.departures[stage.id],choice));}const passes=vignettePasses(events);return {gas,toll,passes,distanceKm,total:gas+toll+passes.reduce((n,p)=>n+p.eur,0)};}
-export function defaults(data:Dataset):Settings{return {consumption:8,fuelPrice:1.912,departures:Object.fromEntries(data.stages.map(s=>[s.id,s.date+'T'+s.departure])) as Record<StageId,string>,plan:{}};}
+export function defaults(data:Dataset):Settings{return {consumption:8,fuelPrice:1.912,exchangeRate:exchange.rate,departures:Object.fromEntries(data.stages.map(s=>[s.id,s.date+'T'+s.departure])) as Record<StageId,string>,plan:{}};}
 const object=(x:unknown):x is Record<string,unknown>=>typeof x==='object'&&x!==null&&!Array.isArray(x);
 export function restore(raw:string|null,data:Dataset):Settings{
  const settings=defaults(data);try{const stored:unknown=JSON.parse(raw??'null');if(!object(stored))return settings;
   if(typeof stored.consumption==='number'&&stored.consumption>=2&&stored.consumption<=30)settings.consumption=stored.consumption;
   if(typeof stored.fuelPrice==='number'&&stored.fuelPrice>=.1&&stored.fuelPrice<=10)settings.fuelPrice=stored.fuelPrice;
+  if(typeof stored.exchangeRate==='number'&&Number.isFinite(stored.exchangeRate)&&stored.exchangeRate>=1&&stored.exchangeRate<=100)settings.exchangeRate=stored.exchangeRate;
   for(const stage of data.stages){if(object(stored.departures)){const date=stored.departures[stage.id];if(typeof date==='string'&&date.startsWith(stage.date+'T')&&validLocal(date))settings.departures[stage.id]=date;}
    if(object(stored.plan)){const choice=stored.plan[stage.id];if(!object(choice))continue;const route=data.routes.find(r=>r.stage===stage.id&&r.id===choice.routeId);if(!route)continue;const stops:Record<string,number>={};if(object(choice.stops))for(const visit of route.stops){const n=choice.stops[visit.id];if(typeof n==='number'&&Number.isInteger(n)&&n>=5&&n<=360)stops[visit.id]=n;}settings.plan[stage.id]={routeId:route.id,stops,reserve:typeof choice.reserve==='number'&&Number.isFinite(choice.reserve)&&choice.reserve>=0&&choice.reserve<=360?choice.reserve:0};}
   }

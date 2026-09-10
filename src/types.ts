@@ -10,7 +10,7 @@ export interface Toll{name:string;eur:number;source:string}
 export interface Route{tollAdjustments:{stopId:string;eur:number;source:string}[];id:string;stage:StageId;letter:string;name:string;via:string;color:string;risk:string;scenery:string;roads:string;pros:string[];cons:string[];stops:StopVisit[];tolls:Toll[];vignettes:Country[];driverEffort:string;dashed:boolean;distanceKm:number;drivingMinutes:number;highwayKm:number;routingUrls:string[];checkedAt:string;geometry:GeoJSON.LineString;countryWindows:{country:Country;start:number;end:number}[]}
 export interface Dataset{routes:Route[];places:Place[];stages:Stage[];sources:Source[];checkedAt:string}
 export interface Selection{routeId:string;stops:Record<string,number>;reserve:number}
-export interface Settings{consumption:number;fuelPrice:number;departures:Record<StageId,string>;plan:Partial<Record<StageId,Selection>>}
+export interface Settings{consumption:number;fuelPrice:number;exchangeRate:number;departures:Record<StageId,string>;plan:Partial<Record<StageId,Selection>>}
 export interface FacilityVisit{routeId:string;atKm:number;detourKm:number;detourMinutes:number;routingUrl:string}
 export interface Facility{id:string;name:string;coordinates:Point;fuel:string[];toilets:boolean;toiletAccess:string;toiletFee:string;openingHours:string;sourceUrl:string;checkedAt:string;visits:FacilityVisit[]}
 export interface FacilityFilter{toilets:boolean;fuel:boolean}
