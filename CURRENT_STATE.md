@@ -15,14 +15,14 @@ Funkční základ: `f97f920`, nahraný na `origin/main`. Před zahájením dokum
 | Původní zastávky | 17 míst, 49 vazeb ke koridorům, fotky, příjezdy, zajížďky. | Hotové. |
 | Výlety od ubytování | 5 SI + 6 HR, sluníčka, přiblížení okolí, fotky, podrobnosti. | Hotové. Nepřidávají se samy do přejezdů/rozpočtu. |
 | GitHub | `https://github.com/MlsnaMalina/cestovani`, `main`. | Funkční změna úspěšně pushnuta. |
-| Vercel | `vercel.json` připraven. | Propojení, deployment ani veřejná URL nejsou doloženy. |
+| Vercel | Projekt `cestovani` propojen s GitHubem, `main` je produkční větev. | Živé: https://cestovani-orpin.vercel.app. Ověřeno 10. 9. 2026 po pushi `510b0b5` (stav `Ready`, smoke test proveden). |
 | Synchronizace/offline | Žádné účty nebo backend. | Neslíbeno a neimplementováno. |
 
 ## Rozpracované, navržené a chybějící
 
 - **Rozpracované funkce:** žádné známé. Poslední dva požadavky — výlety a zaplacené známky — jsou dokončené.
-- **Pouze připravené:** konfigurace Vercel pro statický web; její bezpečnostní hlavičky se lokálním Vite preview neuplatňují.
-- **Chybějící informace:** veřejná produkční URL/projekt, potvrzení skutečného vjezdu/parkování u ubytování, některé vstupné/provozní údaje, reálné nákupy a schválené koridory rodiny.
+- **Nasazeno:** Vercel je od 10. 9. 2026 živý (https://cestovani-orpin.vercel.app), produkční bezpečnostní hlavičky ověřeny přímo na této URL — lokální Vite preview je nadále nezobrazuje, což už není relevantní pro posouzení produkce.
+- **Chybějící informace:** potvrzení skutečného vjezdu/parkování u ubytování, některé vstupné/provozní údaje, reálné nákupy a schválené koridory rodiny. Fyzický Android test živé URL zatím chybí (dosud jen emulace 375 px).
 - **Nezadané rozšíření:** synchronizace mezi telefony, export/import plánu, live doprava, přidávání místních výletů do rozpočtu. Nesmí být prezentováno jako nedodělaná část již slíbené funkce.
 
 ## Důležité výpočetní vztahy

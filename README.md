@@ -107,9 +107,9 @@ Při aktualizaci cen upravte částky v `data/routes.mjs`, `data/toll-adjustment
 
 Projekt je statická klientská aplikace. `vercel.json` nastavuje build `npm run build`, výstup `dist` a bezpečnostní hlavičky. Nejsou potřeba databáze, účet v aplikaci, API klíče ani serverové endpointy. RLS, CORS a rate limiting zápisových API se zde neuplatňují, protože aplikace žádná nemá. Vstupy pro lokální výpočet a obnovený plán jsou validované, uživatelský text vykresluje React s escapováním.
 
-Po propojení GitHub repozitáře s Vercel nastavte framework Vite a produkční větev `main`. Autorem commitů musí být `k.schmiedtova@seznam.cz`. `.env` je v `.gitignore`. Po každém nasazení otestujte na skutečné veřejné URL mapové čáry, marker, přidání a odebrání pauzy, změnu odjezdu, benzín, další etapy a telefon 375 px.
+GitHub repozitář je propojen s Vercel (projekt `cestovani` pod účtem `mlsnamalinas-projects`), framework Vite, produkční větev `main`, automatický deploy při každém pushi. Autorem commitů musí být e-mail podle aktuální globální instrukce uživatelky (k 10. 9. 2026 `zlatenkak@gmail.com`; starší `k.schmiedtova@seznam.cz` Vercel od 9. 9. 2026 neuznává). `.env` je v `.gitignore`. Po každém nasazení otestujte na skutečné veřejné URL mapové čáry, marker, přidání a odebrání pauzy, změnu odjezdu, benzín, další etapy a telefon 375 px.
 
-V této pracovní složce při zahájení nebyl nastavený vzdálený repozitář ani propojení s Vercel. Připravené sestavení samo o sobě neznamená zveřejnění webu.
+**Živá produkční URL (ověřeno 10. 9. 2026):** https://cestovani-orpin.vercel.app — po pushi `510b0b5` úspěšně nasazeno (`Ready`) a smoke-testováno: mapa a trasy se vykreslují, detail trasy, Náš rozpočet, výchozí vypnuté WC/Benzín, formulář „Zapsat vlastní zakoupenou známku" (uložení i odebrání záznamu), 375 px bez vodorovného přetečení, produkční CSP hlavičky přítomné a nic neblokují, konzole bez chyb.
 
 ## WC a benzín — 9. 9. 2026
 

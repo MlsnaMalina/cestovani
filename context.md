@@ -73,7 +73,7 @@ Uživatelka vybrala kombinaci A + C: vzhled a dominantní mapa konceptu 1 (Mapa 
 - [x] Jednotkové testy výpočtů, půlnoci, Europe/Prague a platností poplatků.
 - [x] Ověřit původní scénáře v běžící aplikaci včetně 375 px, mapy, konzole a všech interakcí.
 - [x] README, finální přehled ověřených údajů a odhadů.
-- [ ] Push a nasazení: chybí vzdálený repozitář a propojení Vercel. Před hlášením nasazení je nutný /deploy a test živé URL.
+- [x] Push a nasazení: GitHub propojen, `/deploy` proveden, živá URL otestována — viz záznam 10. 9. 2026 níže.
 
 ## Prostředí
 
@@ -155,3 +155,11 @@ Uživatelka vybrala kombinaci A + C: vzhled a dominantní mapa konceptu 1 (Mapa 
 - Stav podložen kontrolou souborů, zdrojových modulů, původního zadání, README a Git historie. Funkční základ f97f920 už je na origin/main; tato změna upravuje pouze dokumentaci.
 - Předání rozlišuje schválené chování, skutečné nákupy versus testovací volby, datové nejistoty, lokální preview versus nedoložené Vercel nasazení a historické versus současné ceny karet. Nejsou zadány nové funkce.
 - Při dokumentační změně se neopakuje funkční testovací sada; poslední implementační výsledek 33 testů a runtime kontrola jsou zaznamenané jako předchozí ověření. Kontrolovány interní odkazy a existence uváděných hlavních souborů.
+
+## Převzetí session a nasazení — 10. 9. 2026
+
+- Nová relace převzala projekt podle sedmi handoff dokumentů. Ty byly dosud jen `staged`, nikoli commitnuté; commitnuto a pushnuto jako `510b0b5`.
+- Lokální `git config user.email` v tomto repozitáři byl nastavený na starší `k.schmiedtova@seznam.cz`. Podle aktuální globální instrukce uživatelky tento e-mail od 9. 9. 2026 Vercel neuznává; opraveno na `zlatenkak@gmail.com`, tak i poslední commit. Čtyři dokumenty (DO_NOT_CHANGE, PROJECT_CONTEXT, PROMPT_FOR_NEXT_MODEL, README), které starý e-mail uváděly natvrdo, byly opraveny na odkaz k aktuální instrukci místo pevné hodnoty.
+- Zjištěno, že GitHub repozitář `MlsnaMalina/cestovani` byl už ve skutečnosti propojen s Vercel (projekt `cestovani`, účet `mlsnamalinas-projects`) — dřívější dokumentace (CURRENT_STATE, PROJECT_CONTEXT, NEXT_STEPS) to mylně uváděla jako nedoložené/nepropojené. Push `510b0b5` spustil automatický produkční deploy, stav `Ready`.
+- Živá URL **https://cestovani-orpin.vercel.app** otestována v prohlížeči (emulace 375 px i desktop): mapa a všech 6 variant první etapy se vykreslí, kliknutí na trasu otevře detail bez změny plánu, Náš rozpočet ukazuje správný prázdný stav, WC/Benzín výchozí vypnuté (0 míst), formulář „Zapsat vlastní zakoupenou známku“ uložil i odebral testovací rakouskou známku se správným přepočtem Kč/EUR a bez chyby (produkční CSP hlavičky nic neblokují), 375 px bez vodorovného přetečení (scrollWidth = clientWidth = 375), konzole bez chyb, síťové požadavky bez chyb a bez úniku localhost odkazů. Testovací záznam známky byl z UI odebrán.
+- CURRENT_STATE.md a NEXT_STEPS.md aktualizovány, aby odpovídaly ověřenému stavu Vercelu; N3 označeno jako hotové. Zbývá D1 (fyzický Android) a doplnění pár neověřených provozních údajů před odjezdem 12. 9.

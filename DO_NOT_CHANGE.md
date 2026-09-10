@@ -54,7 +54,7 @@ Stav 10. 9. 2026. Tento soubor chrání přijatá rozhodnutí, nikoli každý zn
 - Striktní typy bez `any`, žádné tajné klíče do kódu/Gitu. `.env` ignorovaný. Žádné tokeny v URL nebo chatu. Bez nových serverových API zde není databázové RLS co nastavovat.
 - Zdrojová data a odvozené trip/GeoJSON musí zůstat konzistentní. Nevyměňovat ověřená čísla za staré odhady 580/640/680 km.
 - Oprava není hotová pouze po buildu: zopakovat skutečný dotčený scénář. Po deployi testovat skutečnou veřejnou URL, po UI změně také 375 px. Neslibovat fyzický Android test, pokud šlo jen o emulaci.
-- Hotové ověřené změny commit/push na `main`, autor `k.schmiedtova@seznam.cz`. Ve worktree nejdříve zkontrolovat stav vůči main. Cizí změny nepřepisovat.
+- Hotové ověřené změny commit/push na `main`, autor podle aktuální globální instrukce uživatelky (k 10. 9. 2026 `zlatenkak@gmail.com`; starší `k.schmiedtova@seznam.cz` Vercel od 9. 9. 2026 neuznává). Ve worktree nejdříve zkontrolovat stav vůči main. Cizí změny nepřepisovat.
 
 ## Vyžaduje potvrzení před změnou
 

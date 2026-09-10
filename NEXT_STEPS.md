@@ -18,13 +18,12 @@ Aktualizováno 10. 9. 2026. Poslední funkční požadavky jsou splněné; dalš
 - **Kde:** UI rozpočtu, nastavení a itineráře; klíč `jedeme-spolu-v1` nevymazat jako způsob „opravy“.
 - **Hotovo:** po testu je skutečný plán, kurz, palivo a nákupy beze změny. Původní prázdný stav platil pouze při tomto předání, ne navždy.
 
-### N3 — pokud navazujete na veřejné nasazení, dokončit ověření skutečné URL
+### N3 — hotovo 10. 9. 2026: veřejné nasazení ověřeno
 
-- **Co:** ověřit, zda GitHub mezitím už není propojen s Vercel. Použít dostupné nástroje/CLI a nastavení projektu, nehádat URL podle názvu. Jestli propojení chybí a veřejné nasazení je dalším zvoleným úkolem, použít existující `vercel.json`, framework Vite, `npm run build`, výstup `dist`, větev main. Postupovat podle skillu deploy, pokud je dostupný. Není potřeba databáze ani env klíč.
-- **Proč:** původní zadání chtělo aplikaci připravenou k Vercel a současné změny jsou pouze doloženě na GitHubu a lokálně. Nesmí vzniknout nepravdivé „nasazeno“.
-- **Kde:** GitHub MlsnaMalina/cestovani, Vercel projekt, `vercel.json`.
-- **Hotovo:** známá veřejná URL skutečně načte správný commit; na ní projdou mapa, schválení trasy, popup, zápis/odebrání testovací známky, reload a mobilní šířka 375 px. Zvlášť ověřit chování formuláře při produkčních CSP hlavičkách. Zapsat URL a výsledek do dokumentace.
-- **Chybí:** identifikace Vercel projektu/účtu a veřejné URL. Zjišťovat až při práci na tomto kroku; pro běžnou místní úpravu to není blokace.
+- GitHub `MlsnaMalina/cestovani` byl už propojen s Vercel (projekt `cestovani`, účet `mlsnamalinas-projects`) — dřívější dokumentace to mylně uváděla jako nedoložené. Push `510b0b5` spustil automatický deploy, stav `Ready`.
+- Živá URL: **https://cestovani-orpin.vercel.app**. Smoke test proveden: mapa a všech 6 variant první etapy, detail trasy (prohlížení nemění plán), Náš rozpočet (prázdný stav i po zápisu/odebrání testovací rakouské známky), WC/Benzín výchozí vypnuté, mobilní šířka 375 px bez vodorovného přetečení, produkční CSP hlavičky přítomné (`content-security-policy` se `self`/OSM dlaždicemi) a nic neblokují, konzole bez chyb.
+- Testovací záznam známky byl po ověření z UI odebrán; žádný testovací plán nezůstal uložený v tomto prohlížeči (jde stejně o jinou instanci prohlížeče než telefon uživatelky).
+- **Zbývá:** D1 — test na fyzickém Androidu (dosud jen emulace 375 px v prohlížeči).
 
 ### N4 — před skutečným odjezdem ověřit proměnlivé údaje
 
