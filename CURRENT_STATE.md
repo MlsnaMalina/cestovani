@@ -1,6 +1,6 @@
 # CURRENT_STATE — aktuální stav k 10. 9. 2026
 
-Funkční základ: `f97f920`, nahraný na `origin/main`. Před zahájením dokumentačního předání byl pracovní strom čistý a lokální větev shodná s evidovaným `origin/main`. Handoff soubory vznikají jako samostatná dokumentační změna; aktuální commit zjistíte příkazem `git log -1`.
+Funkční základ: `f97f920`, nahraný na `origin/main`; dokumentační předání navazuje commity `510b0b5`/`3b18004`. Aktuální funkční změna (reset etapy, Souhrn) je popsaná níže; aktuální commit zjistíte příkazem `git log -1`.
 
 ## Stav funkcí
 
@@ -14,6 +14,8 @@ Funkční základ: `f97f920`, nahraný na `origin/main`. Před zahájením dokum
 | WC/Benzín | 100 míst, 203 vazeb na směry. WC 60, benzín 57, kategorie se překrývají. | Oba filtry výchozí vypnuté; skupiny, seznam a detail fungují. |
 | Původní zastávky | 17 míst, 49 vazeb ke koridorům, fotky, příjezdy, zajížďky. | Hotové. |
 | Výlety od ubytování | 5 SI + 6 HR, sluníčka, přiblížení okolí, fotky, podrobnosti. | Hotové. Nepřidávají se samy do přejezdů/rozpočtu. |
+| Reset volby etapy | Tlačítko „Zrušit výběr trasy" v denním plánu i na kartě etapy v Souhrnu; smaže jen `plan[etapa]`, zachová odjezd a ostatní etapy. | Hotové 10. 9. 2026, ověřeno runtime. |
+| Souhrn (4. záložka) | `Souhrn` vedle „Celá dovolená"; bez mapy vypíše datum, zvolenou trasu, časovou osu zastávek a `comparisonCosts()` cenu pro všechny tři etapy najednou; nevybrané etapy nabídnou „Vybrat trasu". | Hotové 10. 9. 2026, ověřeno runtime a 375 px. |
 | GitHub | `https://github.com/MlsnaMalina/cestovani`, `main`. | Funkční změna úspěšně pushnuta. |
 | Vercel | Projekt `cestovani` propojen s GitHubem, `main` je produkční větev. | Živé: https://cestovani-orpin.vercel.app. Ověřeno 10. 9. 2026 po pushi `510b0b5` (stav `Ready`, smoke test proveden). |
 | Synchronizace/offline | Žádné účty nebo backend. | Neslíbeno a neimplementováno. |

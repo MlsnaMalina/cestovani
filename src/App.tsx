@@ -7,7 +7,7 @@ import {ExchangeRateContext,Money,CurrencyText} from './Money';
 import exchange from '../data/exchange-rate.json';
 import {lazy,Suspense,useCallback,useEffect,useMemo,useState} from 'react';
 import type {CSSProperties} from 'react';
-import {ArrowRight,ArrowUpRight,Check,ChevronDown,Compass,Fuel,Info,Map as MapIcon,Plus,Route as RouteIcon,Settings2,Trash2,TreePine,Utensils,Wallet,Waves,X} from 'lucide-react';
+import {ArrowRight,ArrowUpRight,Check,ChevronDown,ClipboardList,Compass,Fuel,Info,Map as MapIcon,Plus,RotateCcw,Route as RouteIcon,Settings2,Trash2,TreePine,Utensils,Wallet,Waves,X} from 'lucide-react';
 const MapView=lazy(()=>import('./MapView'));
 import crosschecks from '../data/crosschecks.json';
 import facilityData from '../data/services.json';
@@ -20,6 +20,7 @@ import {budget,candidateTime,clockAt,comparisonCosts,dateAt,dateTime,defaults,du
 const storageKey='jedeme-spolu-v1';
 const routeStyle=(r:Route)=>({'--route':r.color} as CSSProperties);
 const unknown='Aktuální údaj se nepodařilo spolehlivě ověřit.';
+const stageLabels=['Do Slovinska','K moři','Domů'];
 function External({href,children}:{href:string;children:React.ReactNode}){return <a href={href} target="_blank" rel="noopener noreferrer">{children}<ArrowUpRight size={14}/></a>;}
 function PlaceIcon({place}:{place:Place}){return place.category==='food'?<Utensils size={18}/>:place.category==='lake'?<Waves size={18}/>:place.category==='town'?<Compass size={18}/>:<TreePine size={18}/>;}
 export default function App(){const [data,setData]=useState<Dataset|null>(null),[error,setError]=useState(false),[retry,setRetry]=useState(0);useEffect(()=>{const controller=new AbortController();setError(false);fetch('/data/trip.json',{signal:controller.signal}).then(r=>{if(!r.ok)throw Error('Data');return r.json();}).then((value:Dataset)=>{if(!Array.isArray(value.routes)||!Array.isArray(value.places))throw Error('Data');setData(value);}).catch(e=>{if(e.name!=='AbortError')setError(true);});return()=>controller.abort();},[retry]);return data?<Planner data={data}/>:<main className="loading"><RouteIcon size={40}/><h1>Jedeme spolu</h1><p>{error?'Cestovní data se nepodařilo načíst.':'Připravuji mapu naší cesty…'}</p>{error&&<button onClick={()=>setRetry(n=>n+1)}>Zkusit znovu</button>}</main>;}
@@ -28,7 +29,7 @@ function Planner({data}:{data:Dataset}){
  const [facilityFilter,setFacilityFilter]=useState<FacilityFilter>({toilets:false,fuel:false}),[facilityId,setFacilityId]=useState<string|null>(null),[facilityList,setFacilityList]=useState(false);
  const [facilitySubset,setFacilitySubset]=useState<string[]|null>(null);
  const [settings,setSettings]=useState<Settings>(()=>{try{return restore(localStorage.getItem(storageKey),data);}catch{return defaults(data);}});
- const [stageId,setStageId]=useState<StageId>('si'),[activeId,setActiveId]=useState<string|null>(settings.plan.si?.routeId??null),[overview,setOverview]=useState(false),[placeId,setPlaceId]=useState<string|null>(null),[panel,setPanel]=useState<'settings'|'sources'|'budget'|null>(null),[storageError,setStorageError]=useState(false),[message,setMessage]=useState('');
+ const [stageId,setStageId]=useState<StageId>('si'),[activeId,setActiveId]=useState<string|null>(settings.plan.si?.routeId??null),[overview,setOverview]=useState(false),[placeId,setPlaceId]=useState<string|null>(null),[panel,setPanel]=useState<'settings'|'sources'|'budget'|null>(null),[storageError,setStorageError]=useState(false),[message,setMessage]=useState(''),[view,setView]=useState<'plan'|'summary'>('plan');
  useEffect(()=>{try{localStorage.setItem(storageKey,JSON.stringify(settings));setStorageError(false);}catch{setStorageError(true);}},[settings]);
  const stage=data.stages.find(s=>s.id===stageId)!;
  const excursionBase:ExcursionBase=stageId==='si'?'si':'hr';
@@ -51,16 +52,18 @@ function Planner({data}:{data:Dataset}){
  const placeRoute=active&&placeRoutes.includes(active)?active:placeRoutes.length===1?placeRoutes[0]:null;
  const viewRoute=useCallback((id:string)=>{const route=data.routes.find(r=>r.id===id);if(route){setStageId(route.stage);setActiveId(id);setOverview(false);setExcursionFocus(null);setMessage('');}},[data]);
  function chooseRoute(route:Route){setSettings(s=>({...s,plan:{...s.plan,[route.stage]:s.plan[route.stage]?.routeId===route.id?s.plan[route.stage]:{routeId:route.id,stops:{},reserve:0}}}));setMessage('Trasa '+route.letter+' je v plánu tohoto dne.');}
+ function resetStage(id:StageId){setSettings(s=>{if(!s.plan[id])return s;const plan={...s.plan};delete plan[id];return {...s,plan};});setMessage('Výběr trasy pro '+stageLabels[data.stages.findIndex(s=>s.id===id)]+' je zrušený.');}
  function updateSelection(update:(current:Selection)=>Selection){if(!active)return;setSettings(s=>({...s,plan:{...s.plan,[stageId]:update(s.plan[stageId]?.routeId===active.id?s.plan[stageId]!:{routeId:active.id,stops:{},reserve:0})}}));}
  function addStop(route:Route,p:Place){const existing=settings.plan[route.stage]?.routeId===route.id?settings.plan[route.stage]:undefined;if(existing&&overlapping(route,existing,p.id)){setMessage('Tato zastávka se překrývá s už přidanou zajížďkou. Nejprve odeberte blízkou zastávku, aby se čas nepočítal dvakrát.');return;}setStageId(route.stage);setActiveId(route.id);setSettings(s=>{const current=s.plan[route.stage]?.routeId===route.id?s.plan[route.stage]!:{routeId:route.id,stops:{},reserve:0};return {...s,plan:{...s.plan,[route.stage]:{...current,stops:{...current.stops,[p.id]:p.duration}}}};});setPlaceId(null);setMessage('Zastávka je přidaná. Časy i benzín se přepočítaly.');}
- function changeStage(id:StageId){setStageId(id);setActiveId(settings.plan[id]?.routeId??null);setOverview(false);setExcursionFocus(null);setPlaceId(null);setMessage('');}
+ function changeStage(id:StageId){setView('plan');setStageId(id);setActiveId(settings.plan[id]?.routeId??null);setOverview(false);setExcursionFocus(null);setPlaceId(null);setMessage('');}
  const chosenCount=Object.keys(settings.plan).length;
  return <ExchangeRateContext value={settings.exchangeRate}>
   <header className="header"><a className="brand" href="#top"><RouteIcon size={31}/><span>Jedeme spolu<span className="brand-dot">.</span></span></a><span className="trip-dates">12.–16. září 2026 <span>· 2 dospělí + malý cestovatel</span></span><button className="soft-button" aria-label="Náš rozpočet" onClick={()=>setPanel('budget')}><Wallet size={18}/><span>Náš rozpočet</span>{(chosenCount>0||settings.paidPasses.length>0)&&<b><Money eur={total.total}/></b>}</button></header>
   <main id="top" className="shell">
    <button className="exchange-note" onClick={()=>setPanel('settings')}>Ceny v Kč a € · 1 € = {settings.exchangeRate.toLocaleString('cs-CZ',{maximumFractionDigits:3})} Kč · {settings.exchangeRate===exchange.rate?'ČNB '+dateAt(exchange.date+'T00:00'):'vlastní kurz'}</button>
    <div className="journey-heading"><div><span className="eyebrow">PÁR DNÍ SPOLU. SPOUSTA MOŽNOSTÍ.</span><h1>Nejdřív hory. Potom moře.</h1></div><button className="text-button" onClick={()=>setPanel('settings')}><Settings2 size={17}/> Naše auto a nastavení</button></div>
-   <nav className="stages" aria-label="Etapy dovolené">{data.stages.map((s,i)=><button key={s.id} className={'stage '+(s.id===stageId?'active':'')} aria-pressed={s.id===stageId} onClick={()=>changeStage(s.id)}><span className="stage-date">{s.date.slice(8).replace(/^0/,'')}. 9.</span><span>{['Do Slovinska','K moři','Domů'][i]}</span>{settings.plan[s.id]&&<Check size={15} aria-label="Trasa vybraná"/>}</button>)}<button className={'overview '+(overview?'active':'')} aria-label="Celá dovolená" aria-pressed={overview} onClick={()=>{setOverview(v=>!v);setActiveId(null);setExcursionFocus(null);}}><MapIcon size={16}/><span>Celá dovolená</span></button></nav>
+   <nav className="stages" aria-label="Etapy dovolené">{data.stages.map((s,i)=><button key={s.id} className={'stage '+(s.id===stageId&&view==='plan'?'active':'')} aria-pressed={s.id===stageId&&view==='plan'} onClick={()=>changeStage(s.id)}><span className="stage-date">{s.date.slice(8).replace(/^0/,'')}. 9.</span><span>{stageLabels[i]}</span>{settings.plan[s.id]&&<Check size={15} aria-label="Trasa vybraná"/>}</button>)}<div className="stages-extra"><button className={'overview '+(overview&&view==='plan'?'active':'')} aria-label="Celá dovolená" aria-pressed={overview&&view==='plan'} onClick={()=>{setView('plan');setOverview(v=>!v);setActiveId(null);setExcursionFocus(null);}}><MapIcon size={16}/><span>Celá dovolená</span></button><button className={'summary-tab '+(view==='summary'?'active':'')} aria-label="Souhrn cesty" aria-pressed={view==='summary'} onClick={()=>setView('summary')}><ClipboardList size={16}/><span>Souhrn</span></button></div></nav>
+   {view==='summary'?<Summary data={data} settings={settings} total={total} onViewStage={changeStage} onReset={resetStage}/>:
    <div className="workspace">
     <aside className="route-sidebar"><div className="sidebar-title"><span className="eyebrow">{routes.length} VARIANT · VÝBĚR JE NA VÁS</span><h2>{stage.from}<ArrowRight size={18}/><br/>{stage.to}</h2><p>Prohlédněte si cestu. Pak si ji přidejte do plánu.</p></div>
      <div className="route-list">{routes.map(r=>{const c=comparisonCosts(data,r,settings,selection?.routeId===r.id?selection:undefined);return <button key={r.id} className={'route-row '+(activeId===r.id?'active':'')} style={routeStyle(r)} onClick={()=>viewRoute(r.id)} aria-pressed={activeId===r.id}><span className="route-letter">{r.letter}</span><span className="route-copy"><strong>{r.name}</strong><small>{km(r.distanceKm)} km <span>·</span> {duration(r.drivingMinutes)}</small><small>Benzín <Money eur={c.eur}/> · poplatky <Money eur={c.toll+c.passTotal}/></small><span className="row-total"><Money eur={c.total}/> <small>navíc k ostatním etapám</small></span><small>Zatáčky: {r.risk}</small></span>{selection?.routeId===r.id?<Check className="row-arrow" size={17}/>:<ArrowUpRight className="row-arrow" size={17}/>}</button>;})}</div>
@@ -76,6 +79,7 @@ function Planner({data}:{data:Dataset}){
       <div className="plan-intro"><label className="departure">Odjezd · {stage.from}<input type="time" value={departure.slice(11,16)} required onInput={e=>{const value=e.currentTarget.value;if(/^\d{2}:\d{2}$/.test(value))setSettings(s=>({...s,departures:{...s.departures,[stageId]:stage.date+'T'+value}}));}} onChange={e=>{if(/^\d{2}:\d{2}$/.test(e.target.value))setSettings(s=>({...s,departures:{...s.departures,[stageId]:stage.date+'T'+e.target.value}}));}}/></label><p>{stage.note}</p></div>
       {!active?<div className="empty-plan"><RouteIcon size={30}/><div><h3>Každá cesta má svůj příběh.</h3><p>Klikněte na barevnou cestu v mapě nebo na její písmeno. Tady pak uvidíte časy, zastávky a možnosti výletu.</p></div></div>:<>
        <div className="route-detail-heading" style={routeStyle(active)}><span className="route-letter">{active.letter}</span><div><h3>{active.name}</h3><p>{active.via}</p></div><button className={choice?'soft-button':'primary'} onClick={()=>chooseRoute(active)}>{choice?<Check size={17}/>:<Plus size={17}/>} {choice?'V našem plánu':'Použít pro tento den'}</button></div>
+       {choice&&<button className="text-button" onClick={()=>resetStage(stageId)}><RotateCcw size={15}/> Zrušit výběr trasy pro tento den</button>}
        <div className="metrics"><div><span>Čistá jízda</span><strong>{duration(active.drivingMinutes)}</strong><small>{km(active.distanceKm)} km bez zajížděk</small></div><div><span>S rodinnými pauzami</span><strong>{duration(Math.ceil((active.drivingMinutes+Math.floor(active.drivingMinutes/120)*20)/10)*10)} – {duration(Math.ceil((active.drivingMinutes+Math.floor(active.drivingMinutes/120)*35+30)/10)*10)}</strong><small>Odhad: 20–35 min po cca 2 h + až 30 min rezerva</small></div><div><span>Benzín + silniční poplatky</span><strong><Money eur={price!.total}/></strong><small>Navíc k ostatním etapám · platné známky zohledněny</small></div></div>
        {candidateBudget&&!choice&&<p className="small-note">{selection?'Změna rozpočtu při nahrazení současné trasy':'Nový výdaj při přidání do plánu'}: <strong><Money eur={candidateBudget.total-total.total}/></strong>. Celý plán by stál <Money eur={candidateBudget.total}/>. Platné známky se sdílí mezi etapami.</p>}
        <div className="plan-grid"><div className="timeline">
@@ -90,7 +94,7 @@ function Planner({data}:{data:Dataset}){
      </section>
      <ExcursionSection places={localExcursions} base={excursionBase} onPlace={setExcursionId} onFocus={()=>focusExcursions(excursionBase)}/>
     </div>
-   </div>
+   </div>}
    <footer><span>Plán pro nás. Rozhodnutí na cestě je naše.</span><button onClick={()=>setPanel('sources')}>Ceny 8. 9. · adresa Bibinje 9. 9. 2026 <Info size={14}/></button><span>Časová zóna Europe/Prague</span></footer>
   </main>
   {(message||storageError)&&<div className="toast" role="status"><span>{storageError?'Plán se nedaří uložit v tomto prohlížeči. Změny platí do zavření stránky.':message}</span><button aria-label="Skrýt zprávu" onClick={()=>setMessage('')}><X size={17}/></button></div>}
@@ -103,6 +107,39 @@ function Planner({data}:{data:Dataset}){
   {selectedFacility&&<FacilityDetails facility={selectedFacility} routes={facilityRoutes} onClose={()=>setFacilityId(null)}/>}
   {place&&<Modal title={place.name} onClose={()=>setPlaceId(null)}>{!placeRoute?<><StopPhoto id={place.id} detail/><p>Místo leží u více tras. Vyberte, pro kterou chcete zobrazit příjezd:</p>{placeRoutes.map(r=><button key={r.id} className="choice-button" onClick={()=>{setStageId(r.stage);setActiveId(r.id);setOverview(false);}} style={routeStyle(r)}><span className="route-letter">{r.letter}</span>{r.name} · {r.stage==='si'?'12. 9.':r.stage==='hr'?'13. 9.':'16. 9.'}<ArrowRight size={17}/></button>)}</>:<StopDetails place={place} route={placeRoute} data={data} settings={settings} onAdd={()=>addStop(placeRoute,place)} onRemove={()=>{const id=place.id;setSettings(s=>{const c=s.plan[placeRoute.stage];if(!c)return s;const stops={...c.stops};delete stops[id];return {...s,plan:{...s.plan,[placeRoute.stage]:{...c,stops}}};});setPlaceId(null);}}/>}</Modal>}
  </ExchangeRateContext>;
+}
+function Summary({data,settings,total,onViewStage,onReset}:{data:Dataset;settings:Settings;total:ReturnType<typeof budget>;onViewStage:(id:StageId)=>void;onReset:(id:StageId)=>void}){
+ const chosenCount=Object.keys(settings.plan).length;
+ return <section className="summary-view" aria-labelledby="summary-title">
+  <div className="section-heading"><div><span className="eyebrow">CELÁ DOVOLENÁ NA JEDNOM MÍSTĚ</span><h2 id="summary-title">Souhrn cesty</h2></div></div>
+  <p className="small-note">Přehled zvolených tras, časů a cen i bez mapy — pro případ, že by cestou vypadla navigace. Ceny zohledňují sdílené dálniční známky mezi etapami; přesný společný rozpočet najdete v Náš rozpočet.</p>
+  <div className="budget-total"><Money eur={total.total}/><small>{chosenCount===3?'Benzín + silniční poplatky za celou cestu':'Průběžný součet vybraných etap'}</small></div>
+  {data.stages.map((stage,i)=>{
+   const choice=settings.plan[stage.id];
+   const route=choice&&data.routes.find(r=>r.id===choice.routeId&&r.stage===stage.id);
+   const departure=settings.departures[stage.id];
+   if(!route)return <article className="summary-stage" key={stage.id}>
+    <h3>{dateAt(stage.date+'T00:00')} · {stageLabels[i]}</h3>
+    <p className="summary-route-from">{stage.from} <ArrowRight size={14}/> {stage.to}</p>
+    <p className="small-note">Trasu jste pro tento den ještě nevybrali.</p>
+    <button className="text-button" onClick={()=>onViewStage(stage.id)}>Vybrat trasu <ArrowRight size={15}/></button>
+   </article>;
+   const trip=itinerary(route,choice),price=comparisonCosts(data,route,settings,choice);
+   return <article className="summary-stage" key={stage.id} style={routeStyle(route)}>
+    <h3>{dateAt(stage.date+'T00:00')} · {stageLabels[i]}</h3>
+    <p className="summary-route-from">{stage.from} <ArrowRight size={14}/> {stage.to}</p>
+    <div className="summary-route-name"><span className="route-letter">{route.letter}</span><span><strong>{route.name}</strong><small>{route.via}</small></span></div>
+    <p className="small-note">{km(trip.distanceKm)} km · {duration(trip.minutes)} s vybranými pauzami{trip.reserve?' a rezervou':''}.</p>
+    <ul className="summary-timeline">
+     <li><time>{clockAt(departure)}</time><span>Odjezd · {stage.from}</span></li>
+     {trip.stops.map(s=>{const p=data.places.find(x=>x.id===s.visit.id)!;return <li key={p.id}><time>{clockAt(departure,s.arrivalMinute)}</time><span>{p.name} <small>· {s.duration} min</small></span></li>;})}
+     <li><time>{clockAt(departure,trip.minutes)}</time><span>Příjezd · {stage.to}</span></li>
+    </ul>
+    <p className="summary-price">Benzín + poplatky <strong><Money eur={price.total}/></strong><small>navíc k ostatním etapám</small></p>
+    <div className="summary-actions"><button className="text-button" onClick={()=>onViewStage(stage.id)}>Zobrazit na mapě <ArrowRight size={15}/></button><button className="text-button" onClick={()=>onReset(stage.id)}><RotateCcw size={15}/> Zrušit výběr</button></div>
+   </article>;
+  })}
+ </section>;
 }
 function RouteDetails({route,settings,selection,data}:{route:Route;settings:Settings;selection?:Selection;data:Dataset}){const c=comparisonCosts(data,route,settings,selection),t=itinerary(route,selection);return <div className="route-facts">
  <details open><summary>Silnice, zatáčky a pohoda za volantem <ChevronDown size={17}/></summary><div className="fact-grid"><div><h4>Zatáčky: {route.risk}</h4><p>{route.roads}</p><p>Přibližně {km(route.highwayKm)} km v dálničních úsecích a {km(route.distanceKm-route.highwayKm)} km mimo ně. Jde o odhad ze skupin navigačních pokynů, ne přesné zaměření každého kilometru.</p><h4>Náročnost pro řidiče</h4><p>{route.driverEffort}</p></div><div><h4>Co uvidíme</h4><p>{route.scenery}</p><h4>Pro tuto cestu</h4>{route.pros.map(p=><p key={p} className="pro">+ {p}</p>)}<h4>Co mluví proti</h4>{route.cons.map(p=><p key={p}>− {p}</p>)}</div></div><p className="small-note">Praktické srovnání citlivosti na zatáčky podle typu silnic, nikoli zdravotní hodnocení. Nižší riziko neznamená cestu bez zatáček.</p>{route.id==='si-c'&&<div className="note"><b>Ljubelj bez slovinské dálniční známky</b><p>Uložený jižní úsek byl vypočten s vyloučením dálnic a mýta; routing potvrzuje obojí bez použití. Trasa vede tunelem Ljubelj, nikoli starou cestou přes vrchol sedla. Budoucí průjezdnost a uzavírky: {unknown}</p><p>Tscheppaschlucht jsme prověřili: 1,5–3 h samotné chůze, lávky a přes 300 schodů. S dítětem to není 20minutová pauza; proto není mezi krátkými zastávkami. Dospělý <Money eur={12.5}/>, parkování <Money eur={6}/>, tarif pětiletého dítěte nepotvrzen. <External href="https://www.tscheppaschlucht-ferlach.at/">Podrobnosti soutěsky</External></p></div>}{route.stage==='si'&&<p className="small-note">Posledních přibližně 500 m k zadanému GPS ubytování má v mapových datech příznak horšího povrchu. Přesný příjezd ověřte s ubytovatelem.</p>}{route.stage==='home'&&route.id!=='home-c'&&<p className="note">Na A2 Zagreb–Macelj jsou oznámené zářijové práce. Při pozdním průjezdu 16. 9. zkontrolujte i noční omezení. <External href="https://www.azm.hr/">Aktuální provoz AZM</External></p>}</details>
