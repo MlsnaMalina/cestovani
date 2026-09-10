@@ -81,7 +81,25 @@ Při aktualizaci cen upravte částky v `data/routes.mjs`, `data/toll-adjustment
 - **Ljubelj:** uložená jižní geometrie nemá dálnici ani mýto. To není potvrzení průjezdnosti v budoucím konkrétním čase. Tscheppaschlucht byla prověřena a není vydávána za krátkou pauzu.
 - Context7 v relaci nebyl dostupný. Použitá aktuální oficiální dokumentace React, Vite, MapLibre, Valhalla a OSRM. MapLibre instalační postup: https://maplibre.org/maplibre-gl-js/docs/.
 
-## Vercel
+## Schválené trasy a zakoupené známky — 10. 9. 2026
+
+- Výběr trasy tlačítkem „Použít pro tento den“ přepočítá další varianty podle ostatních schválených etap. Cena na kartě je nový výdaj oproti ostatním etapám (včetně vybraných zajížděk u schválené varianty); není samostatnou cenou bez kontextu. Tyto mezní částky se nesčítají. Přesný společný součet ukazuje Náš rozpočet, při náhradě trasy také změna celého rozpočtu v detailu.
+- Dosud nekoupené známky se plánují společně: například AT 1 den 9,60 € se pro druhý průjezd v platnosti změní na plán AT 10 dní 12,80 €, rozdíl 3,20 €. SI týdenní známka pro 12.–18. 9. pokryje odjezd i návrat 16. 9.
+- V panelu Náš rozpočet → Naše dálniční známky lze označit navrženou známku „Už koupená“, nebo zadat skutečné datum od/do a zaplacenou cenu. Uložení je místní záznam pro výpočet, nikoli nákup či ověření v systému prodejce. Datum konce lze přepsat podle dokladu i pro delší známky.
+- `Settings.paidPasses` přetrvá v localStorage. Platnost se porovnává s místními dny průjezdu zemí včetně půlnoci a koncového dne. Zaplacená jednodenní známka se fiktivně neupgraduje; při návratu po expiraci se účtuje nová. Úsekové a chorvatské mýto zůstává za každý průjezd.
+- Rozpočet odděluje celkovou cenu, již zaplacené zahraniční známky a odhad zbývajících výdajů. Zapsané nákupy zůstávají nákladem i po odebrání tras. Ruční odebrání záznamu nemění skutečný nákup. Starší uložené plány migrují bez ztráty výběrů.
+- Tarify a platnosti: [ASFINAG](https://www.asfinag.at/en/toll/vignette/) a [DARS](https://evinjeta.dars.si/en). Částky jsou v obou měnách přes společný kurz aplikace. Pevné termíny této dovolené zůstávají beze změny.
+
+## Výlety do hodiny od ubytování — 10. 9. 2026
+
+- 5 tipů od Kamniške Bistrice 8: pramen, Velika planina, Kamnik, Arboretum Volčji Potok a Terme Snovik. 6 od Branimirova obala 12 v Bibinje: Zadar, Nin, Vransko jezero / Crkvine, Biograd na Moru, dalmatský Novigrad a Paklenica.
+- Sluníčka v mapě, seskupování blízkých bodů, tlačítka pro přiblížení okolí každého ubytování a fotografické karty. Detail obsahuje příjezd i návrat autem, délku a náročnost chůze, tip pro dítě, otevírací dobu, vstupné v Kč/€, parkování, WC, jídlo, rizika, zdroje a navigaci od konkrétního ubytování.
+- `data/excursions.json` obsahuje ověřený obsah a zdroje; `data/excursion-routes.json` silniční výpočty Valhalla/OSM. Obnovení: `node scripts/acquire-excursions.mjs`. Cache je v ignorovaném `research/excursions/`; bod lanovky se ověřuje proti veřejnému parkovišti OSM 214809784. Metadata mohou obsahovat odmítnuté kandidáty, UI zobrazuje jen body s přijatým routingem.
+- Limit 60 minut platí pro oba vypočtené směry bez živé dopravy, čekání, parkování, lanovek a chůze. Ljubljana byla odmítnuta (i dálniční varianta přes 60 min). Paklenica se vejde pouze placenou dálnicí a je tak označena; ostatní příjezdy jsou bez placených úseků a trajektů. Dopravní situace může reálný dojezd prodloužit.
+- Výlety nepřidávají automaticky přejezdovou zastávku ani výdaj do cestovního rozpočtu. V detailu se samostatně počítá benzín tam i zpět ze skutečných kilometrů obou směrů a aktuálního nastavení auta. Neověřené parkovné nebo mýto zůstává výslovně neznámé.
+- Nových 10 fotografií Commons + znovupoužitá fotografie pramene; autor, zdroj a licence jsou u fotky i v `public/photos/CREDITS.md`. `node scripts/acquire-photos.mjs` obnovuje fotografie podle `data/photo-selection.mjs`; cache kontroluje také shodu názvu souboru. Snímky jsou historické, nikoli záruka aktuálního vzhledu či sezóny.
+
+## Konfigurace Vercel
 
 Projekt je statická klientská aplikace. `vercel.json` nastavuje build `npm run build`, výstup `dist` a bezpečnostní hlavičky. Nejsou potřeba databáze, účet v aplikaci, API klíče ani serverové endpointy. RLS, CORS a rate limiting zápisových API se zde neuplatňují, protože aplikace žádná nemá. Vstupy pro lokální výpočet a obnovený plán jsou validované, uživatelský text vykresluje React s escapováním.
 
@@ -92,7 +110,7 @@ V této pracovní složce při zahájení nebyl nastavený vzdálený repozitá�
 ## WC a benzín — 9. 9. 2026
 
 - 100 míst, z toho 60 s doloženými WC a 57 s benzinovým palivem, 203 přiřazení ke směrům všech 12 tras. Kategorie se překrývají.
-- Samostatná vrstva: oba filtry výchozí zapnuté, kliknutí do detailu, seznam dostupný i bez mapy, blízké značky se při oddálení seskupují. Původní výletní zastávky a uložený itinerář zůstávají samostatné.
+- Samostatná vrstva: oba filtry výchozí vypnuté, ruční a nezávislé zapnutí, kliknutí do detailu, seznam dostupný i bez mapy, blízké značky se při oddálení seskupují. Původní výletní zastávky a uložený itinerář zůstávají samostatné.
 - Zdroj: OpenStreetMap přes veřejné Overpass API. Zobrazuje se datum stažení, přístup k WC, poplatek a otevírací doba, pokud jsou v datech. Benzín vyžaduje výslovný údaj fuel:octane_95/98/100, gasoline_95 nebo e10; samotné amenity=fuel nestačí. WC není automaticky předpokládáno u pumpy. Vyloučeny záznamy se zakázaným/soukromým přístupem a zrušené objekty.
 - Kandidáti do 450 m od geometrie, výběr pro obě služby v přibližně 65km úsecích. Nejde o úplný seznam provozoven ani slib nepřetržité dostupnosti. Příjezd se kontroluje Valhallou s orientovanými body 3 km před/za místem; přijaty zajížďky do 5 km / 10 min a konec příjezdové geometrie do 90 m od bodu. 36 nevhodných kandidátů odmítnuto. Není garantováno aktuální otevření nebo obsazenost.
 - Značky nemění rozpočet ani itinerář: pauzu i případnou zajížďku zohlední uživatel ve vlastní rezervě. WC stanice nemusí sdílet její otevírací dobu.

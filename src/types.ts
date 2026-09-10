@@ -10,8 +10,13 @@ export interface Toll{name:string;eur:number;source:string}
 export interface Route{tollAdjustments:{stopId:string;eur:number;source:string}[];id:string;stage:StageId;letter:string;name:string;via:string;color:string;risk:string;scenery:string;roads:string;pros:string[];cons:string[];stops:StopVisit[];tolls:Toll[];vignettes:Country[];driverEffort:string;dashed:boolean;distanceKm:number;drivingMinutes:number;highwayKm:number;routingUrls:string[];checkedAt:string;geometry:GeoJSON.LineString;countryWindows:{country:Country;start:number;end:number}[]}
 export interface Dataset{routes:Route[];places:Place[];stages:Stage[];sources:Source[];checkedAt:string}
 export interface Selection{routeId:string;stops:Record<string,number>;reserve:number}
-export interface Settings{consumption:number;fuelPrice:number;exchangeRate:number;departures:Record<StageId,string>;plan:Partial<Record<StageId,Selection>>}
+export interface PaidPass{country:Country;from:string;to:string;eur:number;name:string}
+export interface Settings{consumption:number;fuelPrice:number;exchangeRate:number;paidPasses:PaidPass[];departures:Record<StageId,string>;plan:Partial<Record<StageId,Selection>>}
 export interface FacilityVisit{routeId:string;atKm:number;detourKm:number;detourMinutes:number;routingUrl:string}
 export interface Facility{id:string;name:string;coordinates:Point;fuel:string[];toilets:boolean;toiletAccess:string;toiletFee:string;openingHours:string;sourceUrl:string;checkedAt:string;visits:FacilityVisit[]}
 export interface FacilityFilter{toilets:boolean;fuel:boolean}
+export type ExcursionBase='si'|'hr';
+export interface ExcursionPlace{id:string;base:ExcursionBase;photoId:string;name:string;category:string;description:string;duration:string;walking:string;difficulty:string;family:string;openingHours:string;cost:string;parking:string;food:string;toilets:string;tip:string;risks:string[];sources:{title:string;url:string}[];checkedAt:string}
+export interface ExcursionRoute{id:string;base:ExcursionBase;origin:Point;coordinates:Point;accessCoordinates:Point;positionUrl:string;distanceKm:number;drivingMinutes:number;returnKm:number;returnMinutes:number;geometry:Point[];routingUrl:string;checkedAt:string;snapKm:number;paidAlternative:boolean}
+export interface Excursion extends ExcursionPlace{drive:ExcursionRoute}
 export interface TimedStop{visit:StopVisit;duration:number;arrivalMinute:number;leaveMinute:number;distanceKm:number}

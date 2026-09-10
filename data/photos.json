@@ -1,4 +1,114 @@
 {
+  "trip-nin": {
+    "src": "/photos/trip-nin.jpg",
+    "alt": "Pohled na historický Nin a jeho okolí.",
+    "caption": "Pohled na historický Nin a jeho okolí.",
+    "illustrative": false,
+    "author": "RobThinks",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nin_Banner.jpg",
+    "title": "Nin Banner.jpg"
+  },
+  "trip-planina": {
+    "src": "/photos/trip-planina.jpg",
+    "alt": "Pastevecké domky na Veliké planině; z parkoviště se pokračuje lanovkou a pěšky.",
+    "caption": "Pastevecké domky na Veliké planině; z parkoviště se pokračuje lanovkou a pěšky.",
+    "illustrative": false,
+    "author": "Vid Pogacnik",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Velika_planina_04.jpg",
+    "title": "Velika planina 04.jpg"
+  },
+  "trip-kamnik": {
+    "src": "/photos/trip-kamnik.jpg",
+    "alt": "Historická ulice Šutna v Kamniku.",
+    "caption": "Historická ulice Šutna v Kamniku.",
+    "illustrative": false,
+    "author": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sutna_in_Kamnik_(2).jpg",
+    "title": "Sutna in Kamnik (2).jpg"
+  },
+  "trip-arboretum": {
+    "src": "/photos/trip-arboretum.jpg",
+    "alt": "Cesty a zeleň v arboretu Volčji Potok.",
+    "caption": "Cesty a zeleň v arboretu Volčji Potok.",
+    "illustrative": false,
+    "author": "Mihael Simonic",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:ArboretumVolcjiPotok_path.jpg",
+    "title": "ArboretumVolcjiPotok path.jpg"
+  },
+  "trip-snovik": {
+    "src": "/photos/trip-snovik.jpg",
+    "alt": "Areál termálních lázní Snovik; fotografie nezaručuje otevření venkovních bazénů.",
+    "caption": "Areál termálních lázní Snovik; fotografie nezaručuje otevření venkovních bazénů.",
+    "illustrative": false,
+    "author": "Doremo",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Snovik_Spa_Slovenia.jpg",
+    "title": "Snovik Spa Slovenia.jpg"
+  },
+  "trip-zadar": {
+    "src": "/photos/trip-zadar.jpg",
+    "alt": "Mořské varhany na zadarském nábřeží.",
+    "caption": "Mořské varhany na zadarském nábřeží.",
+    "illustrative": false,
+    "author": "Andrej Šalov",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sea_organ_Zadar_3.JPG",
+    "title": "Sea organ Zadar 3.JPG"
+  },
+  "trip-vrana": {
+    "src": "/photos/trip-vrana.jpg",
+    "alt": "Krajina přírodního parku Vransko jezero; celkový pohled na park, nikoli konkrétní lávku u Crkvine.",
+    "caption": "Krajina přírodního parku Vransko jezero; celkový pohled na park, nikoli konkrétní lávku u Crkvine.",
+    "illustrative": false,
+    "author": "Miroslav.vajdic",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Park_prirode_Vransko_jezero_v1.jpg",
+    "title": "Park prirode Vransko jezero v1.jpg"
+  },
+  "trip-biograd": {
+    "src": "/photos/trip-biograd.jpg",
+    "alt": "Přístav v Biogradu na Moru; výlet může pokračovat promenádou směrem k pláži Dražica.",
+    "caption": "Přístav v Biogradu na Moru; výlet může pokračovat promenádou směrem k pláži Dražica.",
+    "illustrative": false,
+    "author": "Falk2",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:I10_484_Hafen_Biograd_na_Moru,_F%C3%A4hrschiff.jpg",
+    "title": "I10 484 Hafen Biograd na Moru, Fährschiff.jpg"
+  },
+  "trip-novigrad": {
+    "src": "/photos/trip-novigrad.jpg",
+    "alt": "Novigrad v Dalmácii u Novigradského moře.",
+    "caption": "Novigrad v Dalmácii u Novigradského moře.",
+    "illustrative": false,
+    "author": "Silverije",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Novigrad_(Dalmacija)_-_panorama.jpg",
+    "title": "Novigrad (Dalmacija) - panorama.jpg"
+  },
+  "trip-paklenica": {
+    "src": "/photos/trip-paklenica.jpg",
+    "alt": "Kaňon Velika Paklenica; do kaňonu se od vstupu pokračuje pěšky.",
+    "caption": "Kaňon Velika Paklenica; do kaňonu se od vstupu pokračuje pěšky.",
+    "illustrative": false,
+    "author": "Pudelek (Marcin Szala)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paklenica_-_canyon_Velika_Paklenica.JPG",
+    "title": "Paklenica - canyon Velika Paklenica.JPG"
+  },
   "stromovka": {
     "src": "/photos/stromovka.jpg",
     "alt": "Zeleň a cesty v budějovické Stromovce.",
