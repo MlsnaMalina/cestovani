@@ -23,6 +23,8 @@ export const places=rows.map(([id,name,query,category,duration,description,child
  friesach:{cost:'Bez průvodce: dospělý 14 €, rodinné vstupné 30 €. Konkrétní tarif rodiny ověřte.',openingHours:'Út–so 09:00–16:00, poslední vstup 15:15. Prohlídka asi 90 minut.',hours:[9,15.25]},
  cad:{openingHours:'Podle Visit Ljubljana denně 11:00–23:00. Rezervace doporučena.',hours:[11,23],food:'Balkánská jídla z grilu i vegetariánská nabídka.',toilets:'Visit Ljubljana uvádí přebalovací místnost.'},
  ogulin:{food:'Restaurace Hotel Frankopan; aktuální provoz ověřte.',sources:['ogulin','frankopan']},
- gleinkersee:{food:'Restaurace Seebauer existuje; ranní otevření nebylo potvrzeno.'},
- bistrica:{sources:['bistrica','predaselj']},
+ gleinkersee:{food:'Restaurace Seebauer existuje; ranní otevření nebylo potvrzeno.',healthAdvisories:['tbe-forest']},
+ bistrica:{sources:['bistrica','predaselj'],healthAdvisories:['tbe-forest']},
+ stromovka:{healthAdvisories:['tbe-forest']},
+ mondsee:{healthAdvisories:['tbe-forest']},
  }[id]??{})}));

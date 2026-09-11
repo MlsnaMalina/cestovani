@@ -30,7 +30,8 @@ Sedm názvů handoff dokumentů zachovat přesně: další prompt na ně odkazuj
 | `PaidPasses.tsx` | Záznam skutečného nákupu, platnost, cena, označení plánované známky za koupenou a odebrání místního záznamu. |
 | `Facilities.tsx` | Filtry WC/Benzín, seznam dostupných míst a detaily. |
 | `Excursions.tsx` | Karty a podrobný dialog výletu od ubytování, samostatný benzín tam/zpět, navigace. |
-| `excursionData.ts` | Spojení výletních metadat s přijatým routingem, limit 60 min v obou směrech. Nezaměnit s Excursions.tsx. |
+| `excursionData.ts` | Spojení výletních metadat s přijatým routingem, limit 100 min v obou směrech (od 11. 9. 2026; nad 60 min označuje `overHour()`). Nezaměnit s Excursions.tsx. |
+| `HealthAdvisories.tsx` | `HazardTag`/`HazardNotes` — sdílené zobrazení zdravotních/bezpečnostních upozornění na kartách i v detailu, pro zastávky i výlety. |
 | `StopPhoto.tsx` | Zobrazení JPEG, náhled/detail a kredit. |
 | `Money.tsx`, `currency.ts` | Kontext kurzu, vykreslení Kč/EUR a převod cen v textu. |
 | `Controls.tsx` | Dialog a validovaný číselný vstup. |

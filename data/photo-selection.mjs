@@ -1,5 +1,6 @@
 export const photoSelection={
  'trip-nin':['Nin Banner.jpg','Pohled na historický Nin a jeho okolí.'],
+ 'trip-ljubljana':['Tivoli City Park, Ljubljana (2019).jpg','Park Tivoli v Lublani.'],
  'trip-planina':['Velika planina 04.jpg','Pastevecké domky na Veliké planině; z parkoviště se pokračuje lanovkou a pěšky.'],
  'trip-kamnik':['Sutna in Kamnik (2).jpg','Historická ulice Šutna v Kamniku.'],
  'trip-arboretum':['ArboretumVolcjiPotok path.jpg','Cesty a zeleň v arboretu Volčji Potok.'],
@@ -9,6 +10,9 @@ export const photoSelection={
  'trip-biograd':['I10 484 Hafen Biograd na Moru, Fährschiff.jpg','Přístav v Biogradu na Moru; výlet může pokračovat promenádou směrem k pláži Dražica.'],
  'trip-novigrad':['Novigrad (Dalmacija) - panorama.jpg','Novigrad v Dalmácii u Novigradského moře.'],
  'trip-paklenica':['Paklenica - canyon Velika Paklenica.JPG','Kaňon Velika Paklenica; do kaňonu se od vstupu pokračuje pěšky.'],
+ 'trip-sibenik':["St. Michael's Fortress, Šibenik.jpg",'Pevnost sv. Mihovila nad starým městem Šibenik.'],
+ 'trip-skradin':['Skradin panorama města s přístavem 1.jpg','Přístavní městečko Skradin.'],
+ 'trip-krka':['Cascada de Skradinski Buk (1).jpg','Vodopády Skradinski buk v NP Krka.'],
  stromovka:['České Budějovice, Stromovka JZ (01).jpg','Zeleň a cesty v budějovické Stromovce.'],
  gleinkersee:['Gleinkersee.jpg','Horské jezero Gleinkersee.'],
  mikulov:['Mikulov castle as seen from Náměstí in 2020.jpg','Pohled z mikulovského náměstí na zámek.'],

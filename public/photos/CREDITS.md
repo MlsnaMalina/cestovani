@@ -3,6 +3,7 @@
 Soubory jsou nezměněné zmenšeniny z Wikimedia Commons. Náhledy v aplikaci používají výřez CSS; detail ukazuje celý snímek.
 
 - **Nin Banner.jpg** — RobThinks. [Zdroj](https://commons.wikimedia.org/wiki/File:Nin_Banner.jpg), [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Soubor: /photos/trip-nin.jpg.
+- **Tivoli City Park, Ljubljana (2019).jpg** — Dedo70. [Zdroj](https://commons.wikimedia.org/wiki/File:Tivoli_City_Park,_Ljubljana_(2019).jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Soubor: /photos/trip-ljubljana.jpg.
 - **Velika planina 04.jpg** — Vid Pogacnik. [Zdroj](https://commons.wikimedia.org/wiki/File:Velika_planina_04.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Soubor: /photos/trip-planina.jpg.
 - **Sutna in Kamnik (2).jpg** — Krzysztof Golik. [Zdroj](https://commons.wikimedia.org/wiki/File:Sutna_in_Kamnik_(2).jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Soubor: /photos/trip-kamnik.jpg.
 - **ArboretumVolcjiPotok path.jpg** — Mihael Simonic. [Zdroj](https://commons.wikimedia.org/wiki/File:ArboretumVolcjiPotok_path.jpg), [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/). Soubor: /photos/trip-arboretum.jpg.
@@ -12,6 +13,9 @@ Soubory jsou nezměněné zmenšeniny z Wikimedia Commons. Náhledy v aplikaci p
 - **I10 484 Hafen Biograd na Moru, Fährschiff.jpg** — Falk2. [Zdroj](https://commons.wikimedia.org/wiki/File:I10_484_Hafen_Biograd_na_Moru,_F%C3%A4hrschiff.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Soubor: /photos/trip-biograd.jpg.
 - **Novigrad (Dalmacija) - panorama.jpg** — Silverije. [Zdroj](https://commons.wikimedia.org/wiki/File:Novigrad_(Dalmacija)_-_panorama.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Soubor: /photos/trip-novigrad.jpg.
 - **Paklenica - canyon Velika Paklenica.JPG** — Pudelek (Marcin Szala). [Zdroj](https://commons.wikimedia.org/wiki/File:Paklenica_-_canyon_Velika_Paklenica.JPG), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0). Soubor: /photos/trip-paklenica.jpg.
+- **St. Michael's Fortress, Šibenik.jpg** — Bernard Gagnon. [Zdroj](https://commons.wikimedia.org/wiki/File:St._Michael%27s_Fortress,_%C5%A0ibenik.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Soubor: /photos/trip-sibenik.jpg.
+- **Skradin panorama města s přístavem 1.jpg** — VitVit. [Zdroj](https://commons.wikimedia.org/wiki/File:Skradin_panorama_m%C4%9Bsta_s_p%C5%99%C3%ADstavem_1.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Soubor: /photos/trip-skradin.jpg.
+- **Cascada de Skradinski Buk (1).jpg** — Alberto-g-rovi. [Zdroj](https://commons.wikimedia.org/wiki/File:Cascada_de_Skradinski_Buk_(1).jpg), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0). Soubor: /photos/trip-krka.jpg.
 - **České Budějovice, Stromovka JZ (01).jpg** — Czeva. [Zdroj](https://commons.wikimedia.org/wiki/File:%C4%8Cesk%C3%A9_Bud%C4%9Bjovice,_Stromovka_JZ_(01).jpg), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0). Soubor: /photos/stromovka.jpg.
 - **Gleinkersee.jpg** — Acp~commonswiki. [Zdroj](https://commons.wikimedia.org/wiki/File:Gleinkersee.jpg), [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/). Soubor: /photos/gleinkersee.jpg.
 - **Mikulov castle as seen from Náměstí in 2020.jpg** — Tadeáš Bednarz. [Zdroj](https://commons.wikimedia.org/wiki/File:Mikulov_castle_as_seen_from_N%C3%A1m%C4%9Bst%C3%AD_in_2020.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Soubor: /photos/mikulov.jpg.

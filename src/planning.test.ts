@@ -2,7 +2,7 @@ import {describe,expect,it} from 'vitest';
 import raw from '../public/data/trip.json';
 import type {Dataset,Selection} from './types';
 import {budget,candidateTime,clockAt,costs,countryEvents,dateAt,defaults,fuel,itinerary,moment,restore,vignettePasses} from './planning';
-const data=raw as Dataset;
+const data=raw as unknown as Dataset;
 describe('Benzín a celkový rozpočet',()=>{
  it('zohlední rozdělené chorvatské mýto i dvě současné pauzy',()=>{const settings=defaults(data),r=data.routes.find(r=>r.id==='hr-b')!;const c=costs(r,settings,{routeId:r.id,stops:{fuzine:40,ogulin:35},reserve:0});expect(c.toll).toBeCloseTo(1.1+2.1+5+12.2);});
  it('počítá litry a stejnou cenu za litr bez předčasného zaokrouhlení',()=>{expect(fuel(650,8,1.912).liters).toBe(52);expect(fuel(650,8,1.912).eur).toBeCloseTo(99.424);expect(()=>fuel(100,NaN,2)).toThrow();});

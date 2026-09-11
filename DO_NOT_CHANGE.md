@@ -27,8 +27,10 @@ Stav 10. 9. 2026. Tento soubor chrání přijatá rozhodnutí, nikoli každý zn
 - Všechny varianty zvolené etapy současně; možnost celé dovolené zůstává. Nezredukovat ověřené varianty z 12 zpět na původní tři jen podle úvodního zadání.
 - **WC a Benzín při načtení vypnuté**, ručně a nezávisle zapínatelné, reload oba vypne. Neodvozovat WC automaticky z existence pumpy.
 - Služby mají vazby ke konkrétním směrům, ne pouze vzdálenost vzdušnou čarou. Samy nepřidávají pauzu, zajížďku nebo výdaj do itineráře.
-- Výletní sluníčka, skupiny blízkých bodů, fotografie a podrobné dialogy zachovat. Limit hodiny znamená vypočtený silniční příjezd i návrat, chůze/lanovka navíc. Neslibovat hodinu v živém provozu.
-- Ljubljana není přijatý hodinový výlet; Paklenica má upozornění na placenou dálnici. Velika planina je příjezd k nástupu, ne autem k horským domkům.
+- Výletní sluníčka, skupiny blízkých bodů, fotografie a podrobné dialogy zachovat. Limit 100 minut (zvednuto z 60 na výslovné zadání uživatelky 10. 9. 2026) znamená vypočtený silniční příjezd i návrat, chůze/lanovka navíc; nad limit se nenabízí vůbec. Neslibovat žádný čas v živém provozu.
+- Cokoli nad 60 minut tam nebo zpět musí mít zřetelnou výstrahu (karta i detail) — to je závazné od 10. 9. 2026, ne jen doporučení. Paklenica má navíc upozornění na placenou dálnici. Ljubljana se do 100 minut vejde (s výstrahou) a je nyní nabízená; dřívější zápisy o jejím vyřazení jsou překonané. Velika planina je příjezd k nástupu, ne autem k horským domkům.
+- **Pevnost sv. Mihovila v Šibeniku nebyla natáčecím místem Hry o trůny** — Šibenik hrál Braavos v 5. sérii, natáčelo se u katedrály sv. Jakova a na pevnosti sv. Ivana. Nevracet nesprávnou domněnku, že natáčela sama pevnost sv. Mihovila.
+- **Západonilská horečka není u této trasy v aplikaci uvedená záměrně** — výzkum k 11. 9. 2026 (ECDC, HZJZ) ukázal 0 případů v Zadarské župě a na celém chorvatském pobřeží. Nepřidávat toto upozornění zpět bez nového ověření aktuálních dat; skutečně potvrzená zdravotní rizika (klíšťová encefalitida, mořští ježci/medúzy, poskok v Paklenici) jsou v `data/health-advisories.json`.
 - Místní výlety automaticky nemění přejezdový itinerář ani společný rozpočet. Jejich benzín se počítá zvlášť tam i zpět.
 - Fotografie musí odpovídat místu nebo být výslovně označené jako ilustrační. Zachovat autora/licenci/zdroj; neodstranit kredity ani zaměnit snímek bez aktualizace manifestu.
 

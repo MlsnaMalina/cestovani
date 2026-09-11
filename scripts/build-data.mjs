@@ -6,6 +6,7 @@ import {places} from '../data/places.mjs';
 import {sources,checkedAt} from '../data/sources.mjs';
 import {tollAdjustments} from '../data/toll-adjustments.mjs';
 await mkdir('public/data',{recursive:true});
+const healthAdvisories=JSON.parse(await readFile('data/health-advisories.json','utf8'));
 const output=[];
 for(const route of await compileRoutes()){
  const {coordinates,timing,records,...meta}=route;
@@ -21,5 +22,5 @@ for(const route of await compileRoutes()){
  await writeFile(`public/data/${route.id}.geojson`,JSON.stringify({type:'Feature',properties:{id:route.id,distanceKm:route.distanceKm,drivingMinutes:route.drivingMinutes},geometry}));
  output.push({...meta,geometry,stops,countryWindows,tollAdjustments:tollAdjustments[route.id]??[]});
 }
-await writeFile('public/data/trip.json',JSON.stringify({routes:output,places:places.map(({query,...p})=>p),stages,sources,checkedAt}));
+await writeFile('public/data/trip.json',JSON.stringify({routes:output,places:places.map(({query,...p})=>p),stages,sources,healthAdvisories,checkedAt}));
 console.log('Saved',output.length,'routes,',places.length,'places.');

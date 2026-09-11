@@ -18,6 +18,9 @@ const points={
  'trip-biograd':['hr',[15.443169,43.9363932],'https://www.openstreetmap.org/node/513472692'],
  'trip-novigrad':['hr',[15.5528688,44.1767304],'https://nominatim.openstreetmap.org/search?q=Novigrad+Zadarska+%C5%BEupanija&format=json'],
  'trip-paklenica':['hr',[15.4575437,44.2940785],'https://nominatim.openstreetmap.org/search?q=Velika+Paklenica+ulaz&format=json'],
+ 'trip-sibenik':['hr',[15.8896147,43.7375675],'https://nominatim.openstreetmap.org/search?q=Tvr%C4%91ava+svetog+Mihovila+%C5%A0ibenik&format=json'],
+ 'trip-skradin':['hr',[15.9233190,43.8178464],'https://nominatim.openstreetmap.org/search?q=Skradin%2C+Croatia&format=json'],
+ 'trip-krka':['hr',[15.9650613,43.8015822],'https://nominatim.openstreetmap.org/search?q=Nacionalni+park+Krka+Lozovac&format=json'],
 };
 async function cached(path,url){try{const record=JSON.parse(await readFile(path,'utf8'));if(record.url===url)return record;}catch{}const r=await fetch(url,{headers,signal:AbortSignal.timeout(45000)});if(!r.ok)throw Error(r.status+' '+await r.text());const record={url,data:await r.json(),checkedAt:new Date().toISOString()};await writeFile(path,JSON.stringify(record));await new Promise(r=>setTimeout(r,1100));return record;}
 const station=await cached('research/excursions/planina-line.json','https://maps.mail.ru/osm/tools/overpass/api/interpreter?data='+encodeURIComponent('[out:json];way(46677083);out geom;'));
@@ -34,7 +37,7 @@ for(const [id,[base,point,positionUrl]] of Object.entries(points)){
  if(snapKm>.35 || distance(origin,geometry[0])>.2 || route.summary.has_ferry || (!paidAlternative&&route.summary.has_toll))throw Error('Unsuitable access '+id+' snap '+snapKm);
  const item={id,base,origin,coordinates:point,accessCoordinates:endpoint,positionUrl,distanceKm:out.summary.length,drivingMinutes:out.summary.time/60,returnKm:back.summary.length,returnMinutes:back.summary.time/60,geometry,routingUrl:url,checkedAt:record.checkedAt,snapKm,paidAlternative};
  console.log(id,JSON.stringify({minutes:item.drivingMinutes,back:item.returnMinutes,km:item.distanceKm,snapKm,point}));
- if(item.drivingMinutes>60||item.returnMinutes>60){console.log('Excluded: more than one hour',id);continue;}
+ if(item.drivingMinutes>100||item.returnMinutes>100){console.log('Excluded: more than 100 minutes',id);continue;}
  result.push(item);
 }
 await writeFile('data/excursion-routes.json',JSON.stringify(result,null,2)+'\n');

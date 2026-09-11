@@ -10,6 +10,17 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nin_Banner.jpg",
     "title": "Nin Banner.jpg"
   },
+  "trip-ljubljana": {
+    "src": "/photos/trip-ljubljana.jpg",
+    "alt": "Park Tivoli v Lublani.",
+    "caption": "Park Tivoli v Lublani.",
+    "illustrative": false,
+    "author": "Dedo70",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tivoli_City_Park,_Ljubljana_(2019).jpg",
+    "title": "Tivoli City Park, Ljubljana (2019).jpg"
+  },
   "trip-planina": {
     "src": "/photos/trip-planina.jpg",
     "alt": "Pastevecké domky na Veliké planině; z parkoviště se pokračuje lanovkou a pěšky.",
@@ -108,6 +119,39 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paklenica_-_canyon_Velika_Paklenica.JPG",
     "title": "Paklenica - canyon Velika Paklenica.JPG"
+  },
+  "trip-sibenik": {
+    "src": "/photos/trip-sibenik.jpg",
+    "alt": "Pevnost sv. Mihovila nad starým městem Šibenik.",
+    "caption": "Pevnost sv. Mihovila nad starým městem Šibenik.",
+    "illustrative": false,
+    "author": "Bernard Gagnon",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:St._Michael%27s_Fortress,_%C5%A0ibenik.jpg",
+    "title": "St. Michael's Fortress, Šibenik.jpg"
+  },
+  "trip-skradin": {
+    "src": "/photos/trip-skradin.jpg",
+    "alt": "Přístavní městečko Skradin.",
+    "caption": "Přístavní městečko Skradin.",
+    "illustrative": false,
+    "author": "VitVit",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skradin_panorama_m%C4%9Bsta_s_p%C5%99%C3%ADstavem_1.jpg",
+    "title": "Skradin panorama města s přístavem 1.jpg"
+  },
+  "trip-krka": {
+    "src": "/photos/trip-krka.jpg",
+    "alt": "Vodopády Skradinski buk v NP Krka.",
+    "caption": "Vodopády Skradinski buk v NP Krka.",
+    "illustrative": false,
+    "author": "Alberto-g-rovi",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cascada_de_Skradinski_Buk_(1).jpg",
+    "title": "Cascada de Skradinski Buk (1).jpg"
   },
   "stromovka": {
     "src": "/photos/stromovka.jpg",

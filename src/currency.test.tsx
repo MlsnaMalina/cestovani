@@ -7,7 +7,7 @@ import {defaults,restore} from './planning';
 import raw from '../public/data/trip.json';
 import photos from '../data/photos.json';
 import type {Dataset} from './types';
-const data=raw as Dataset;
+const data=raw as unknown as Dataset;
 const plain=(s:string)=>s.replace(/[\u00a0\u202f]/g,' ');
 describe('Dvě měny a fotografie',()=>{
  it('přepočítá ceny v popiscích včetně záporné částky a přesné ceny za litr',()=>{

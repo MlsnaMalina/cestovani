@@ -2,7 +2,7 @@ import {describe,expect,it} from 'vitest';
 import raw from '../public/data/trip.json';
 import type {Dataset,PaidPass} from './types';
 import {budget,comparisonCosts,countryEvents,defaults,restore,vignettePasses} from './planning';
-const data=raw as Dataset;
+const data=raw as unknown as Dataset;
 const at:PaidPass={country:'AT',from:'2026-09-12',to:'2026-09-21',eur:12.8,name:'Rakousko · 10 dní'};
 const si:PaidPass={country:'SI',from:'2026-09-12',to:'2026-09-18',eur:16,name:'Slovinsko · 7 dní'};
 const route=(id:string)=>data.routes.find(r=>r.id===id)!;

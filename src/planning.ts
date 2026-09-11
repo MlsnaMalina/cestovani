@@ -1,6 +1,7 @@
 import exchange from '../data/exchange-rate.json';
 import {Temporal} from '@js-temporal/polyfill';
-import type {Country,Dataset,Route,Selection,Settings,StageId,TimedStop} from './types';
+import type {Country,Dataset,HealthAdvisory,Route,Selection,Settings,StageId,TimedStop} from './types';
+export function resolveAdvisories(catalog:HealthAdvisory[],ids?:string[]):HealthAdvisory[]{return (ids??[]).flatMap(id=>{const a=catalog.find(x=>x.id===id);return a?[a]:[];});}
 export const timezone='Europe/Prague';
 export const money=(n:number)=>new Intl.NumberFormat('cs-CZ',{style:'currency',currency:'EUR',maximumFractionDigits:2}).format(n);
 export const km=(n:number)=>Math.round(n).toLocaleString('cs-CZ');

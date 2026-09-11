@@ -40,7 +40,7 @@ Auto je Škoda Superb, benzín. Česká dálniční známka už je zakoupená. P
 - Všechny ceny v Kč i EUR, výpočty v EUR bez předčasného zaokrouhlení. Kurz editovatelný.
 - Fotografie na kartách míst i v detailu; správné místo, autor a licence, ilustrační fotografie označené.
 - WC a Benzín jsou při každém načtení **vypnuté**, zapínají se nezávisle ručně.
-- Výlety do hodiny od obou ubytování: sluníčko v mapě → detail s fotografií a praktickými informacemi.
+- Výlety do 100 minut od obou ubytování: sluníčko v mapě → detail s fotografií a praktickými informacemi. Cokoli nad 60 minut tam či zpět má zřetelnou výstrahu (od 10. 9. 2026; dřív byl limit 60 minut bez výjimky).
 - Cena varianty musí zohlednit ostatní schválené etapy a skutečně zaplacené známky v době jejich platnosti.
 
 ## Technické a pracovní preference
