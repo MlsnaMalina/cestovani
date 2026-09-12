@@ -8,9 +8,10 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "test": "vitest run",
-    "data:routes": "node scripts/acquire-valhalla.mjs && node scripts/geocode-stops.mjs && node scripts/acquire-stops.mjs && node scripts/build-data.mjs",
-    "data:stops": "node scripts/geocode-stops.mjs && node scripts/acquire-stops.mjs && node scripts/build-data.mjs",
-    "data:services": "node scripts/acquire-services.mjs && node scripts/build-services.mjs"
+    "data:routes": "node scripts/acquire-valhalla.mjs && node scripts/geocode-stops.mjs && node scripts/acquire-stops.mjs && node scripts/build-data.mjs && node scripts/build-roadbooks.mjs",
+    "data:stops": "node scripts/geocode-stops.mjs && node scripts/acquire-stops.mjs && node scripts/build-data.mjs && node scripts/build-roadbooks.mjs",
+    "data:services": "node scripts/acquire-services.mjs && node scripts/build-services.mjs",
+    "data:roadbooks": "node scripts/build-roadbooks.mjs"
   },
   "dependencies": {
     "@js-temporal/polyfill": "0.5.1",

@@ -113,3 +113,6 @@ Neobnovovat hromadně data jen kvůli převzetí projektu: veřejné služby moh
 ## Kde pokračovat a co nepřepisovat
 
 Pro ceny začít `planning.ts` a příslušnými testy, pro obsah příslušným zdrojem v `data/`, pro UI cílenou komponentou. Zachovat route/stop/photo ID, `jedeme-spolu-v1` a názvy veřejných assetů nebo provést výslovně promyšlenou migraci. Generované trip/GeoJSON/JPEG neupravovat odděleně od zdrojů. Nikdy nepřepsat uživatelčin plán nebo současné necommitované změny jen proto, že se liší od tohoto inventáře.
+
+- `src/Roadbook.tsx`, `src/roadbookData.ts`: rozpisy, sdílené ceny a export samostatné mapy/taháku; `src/roadbook.test.ts`: návaznost pokynů a export.
+- `scripts/build-roadbooks.mjs` → `data/roadbooks.json`: generátor českých pokynů z cache původních tras a zajížděk.

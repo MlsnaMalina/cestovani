@@ -120,3 +120,8 @@ GitHub repozitář je propojen s Vercel (projekt `cestovani` pod účtem `mlsnam
 - Značky nemění rozpočet ani itinerář: pauzu i případnou zajížďku zohlední uživatel ve vlastní rezervě. WC stanice nemusí sdílet její otevírací dobu.
 - Data připravuje `npm.cmd run data:services`; předpokládá routingové cache z `npm.cmd run data:routes`. Stažené oblasti a dotazy se cachují v ignorovaném research/services/. Při obnově dat záměrně odstraňte odpovídající cache. data/services.json je veřejný výřez dat OSM pod ODbL, © OpenStreetMap contributors; atribuce a jednotlivé zdroje také v aplikaci. Obnova může být pomalá kvůli veřejným serverům, běh aplikace na nich nezávisí.
 - Veřejné evropské Overpass servery při přípravě vracely chyby nebo timeout. Úspěšně použit veřejný server maps.mail.ru/osm/tools/overpass, uvedený v oficiálním seznamu instancí OSM; dotazy obsahují pouze geografické oblasti a typy zařízení, žádné přihlašovací údaje.
+
+## Mapa a rozpis do telefonu
+V záložce Souhrn vyberte „Stáhnout mapu a rozpis do telefonu“. Samostatný HTML soubor obsahuje schválené etapy, SVG mapu silničních koridorů a zastávek, české pokyny, ceny Kč/EUR a platnosti známek. Otevřete ze Stažených souborů před cestou. Nepotřebuje síť ani mapové dlaždice; neobsahuje okolní silniční síť, fotografie ani živou polohu. Po změně plánu vytvořte nový soubor. Jednotlivý tahák lze stáhnout i v detailu trasy.
+
+Příprava pokynů: `npm run data:roadbooks` čte původní cache Valhalla/stop-routing v `research/` (v čistém klonu je nutné je znovu získat). Výstup `data/roadbooks.json` se commituje. Regenerace tras i zastávek tento krok spouští automaticky.

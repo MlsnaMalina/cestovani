@@ -90,3 +90,6 @@ Poslední funkční build a 33 testů prošly před dokumentačním předáním.
 - `context.md` je chronologický deník: starší věty o chybějícím remote nebo samostatných cenách jsou překonané pozdějšími záznamy. Tento dokument popisuje současný stav.
 
 Bez výslovného souhlasu neměnit adresy, termíny, volbu A + C, autonomii rodiny, výchozí filtry, dvě měny ani význam zaplacených známek. Podrobnosti v [DO_NOT_CHANGE.md](DO_NOT_CHANGE.md).
+
+## Doplnění 12. 9. 2026: taháky a offline export
+Denní detail i Souhrn nově obsahují podrobné silniční pokyny, poplatky a známky. Souhrn stáhne všechny vybrané etapy do jediného samostatného HTML se SVG mapou tras a zastávek. Nejde o offline plnou mapu okolních silnic ani živou navigaci. Předchozí řádek „Synchronizace/offline“ se nyní vztahuje pouze na celou aplikaci a synchronizaci; samotný export offline funguje bez dalších souborů.
